@@ -1,0 +1,197 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "src/tests/json/TestJSON"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"add_dependencies",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"src/tests/json/CMakeLists.txt",
+			"src/json/CMakeLists.txt",
+			"src/tests/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 25,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 37,
+				"parent" : 3
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 39,
+				"parent" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../.."
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../../libs"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/opt/homebrew/Cellar/rapidjson/1.1.0/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/opt/homebrew/Cellar/simdjson/3.10.0/include"
+				}
+			],
+			"language" : "CXX",
+			"languageStandard" : 
+			{
+				"backtraces" : 
+				[
+					1
+				],
+				"standard" : "17"
+			},
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "TestJSONTestJSONHelper::@08b4cb1648a15a99be29"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "json::@1ddba6983792434d3c19"
+		}
+	],
+	"id" : "TestJSON::@c83b68be1f8fae7e030c",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/opt/homebrew/Cellar/simdjson/3.10.0/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/opt/homebrew/Cellar/simdjson/3.10.0/lib -Wl,-rpath,/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "src/json/libjson.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lsimdjson",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "TestJSON",
+	"nameOnDisk" : "TestJSON",
+	"paths" : 
+	{
+		"build" : "src/tests/json",
+		"source" : "src/tests/json"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/tests/Catch.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/tests/json/TestJSONHelper.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

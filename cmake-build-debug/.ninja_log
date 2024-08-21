@@ -1,0 +1,14 @@
+# ninja log v6
+2	3996	1724196624677620847	src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/Catch.cpp.obj	d11732b9d2742f00
+468	500	1724193022783883789	src/tests/TestJSONTestJSONHelper	14fab7ad8305dbe7
+5	468	1724193022320120806	src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/json/TestJSONHelper.cpp.o	506c07fdfee621c2
+428	455	1724192408545276962	src/json/libjson.dylib	7197bba5ed6f58f4
+4	427	1724192408121558375	src/json/CMakeFiles/json.dir/JSONHelper.cpp.o	613bfebd149bb41b
+257	286	1724177316907268846	bitocen	ad012691971fb0f4
+4	2154	1724190812912816089	src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/Catch.cpp.o	fa307f7f49194c3b
+0	52	1724198622821150939	build.ninja	a19aa86b766fa209
+1	436	1724198624260768692	src/json/CMakeFiles/json.dir/JSONHelper.cpp.o	613bfebd149bb41b
+438	461	1724198624698167761	src/json/libjson.dylib	7197bba5ed6f58f4
+1	485	1724198624261094108	src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/json/TestJSONHelper.cpp.o	506c07fdfee621c2
+1	1909	1724198624260989859	src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/Catch.cpp.o	fa307f7f49194c3b
+1909	1940	1724198626168677733	src/tests/TestJSONTestJSONHelper	14fab7ad8305dbe7

@@ -1,0 +1,14 @@
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json/CMakeFiles/json.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json/CMakeFiles/edit_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json/CMakeFiles/rebuild_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/model/CMakeFiles/model.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/model/CMakeFiles/edit_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/model/CMakeFiles/rebuild_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/CMakeFiles/TestJSONTestJSONHelper.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/CMakeFiles/edit_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/CMakeFiles/rebuild_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/json/CMakeFiles/TestJSON.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/json/CMakeFiles/edit_cache.dir
+/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/json/CMakeFiles/rebuild_cache.dir
