@@ -7,3 +7,6 @@
 [submodule "libs/openssl"]
 	path = libs/openssl
 	url = https://github.com/openssl/openssl.git
+[submodule "libs/boost"]
+	path = libs/boost
+	url = https://github.com/boostorg/boost.git
