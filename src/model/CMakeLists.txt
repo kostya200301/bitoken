@@ -3,10 +3,6 @@ project(bitocen)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Найти pkg-config
-find_package(PkgConfig REQUIRED)
-
-
 set(SOURCES
         ConnectionsManager.cpp
 )

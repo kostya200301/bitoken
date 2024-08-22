@@ -6,8 +6,6 @@ project(MyProject)
 
 add_subdirectory(json)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../libs)
-
 set(TESTS_OUTPUT_DIR "./")
 
 find_package(PkgConfig REQUIRED)
