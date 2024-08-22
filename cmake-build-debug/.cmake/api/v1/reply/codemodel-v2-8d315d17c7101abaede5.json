@@ -1,0 +1,220 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "libs/simdjson",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-libs.simdjson-Debug-90a5b8614a60fec3659e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "libs/simdjson",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/json",
+					"jsonFile" : "directory-src.json-Debug-012bd10c962872460eba.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/json",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "src/model",
+					"jsonFile" : "directory-src.model-Debug-4cacfdfa714b48e7c0f6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src/model",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "src/tests",
+					"childIndexes" : 
+					[
+						5
+					],
+					"jsonFile" : "directory-src.tests-Debug-115a8c61f2ecd2030e99.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "src/tests",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "src/tests/json",
+					"jsonFile" : "directory-src.tests.json-Debug-030b91aae05b63681108.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 4,
+					"projectIndex" : 3,
+					"source" : "src/tests/json",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						2,
+						3
+					],
+					"name" : "bitocen",
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "simdjson",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "MyProject",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "bitocen",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 5,
+					"id" : "TestJSON::@c83b68be1f8fae7e030c",
+					"jsonFile" : "target-TestJSON-Debug-a9bd2e993471b647c164.json",
+					"name" : "TestJSON",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "TestJSONTestJSONHelper::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-TestJSONTestJSONHelper-Debug-6c1b293a6c23b8d2dfa2.json",
+					"name" : "TestJSONTestJSONHelper",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "json::@1ddba6983792434d3c19",
+					"jsonFile" : "target-json-Debug-f346ced33fcd3402e683.json",
+					"name" : "json",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "model::@dd52281f56f5d51f359a",
+					"jsonFile" : "target-model-Debug-edb28a36f1066ca9378b.json",
+					"name" : "model",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "simdjson::@2066a45d9ed13d1e8afb",
+					"jsonFile" : "target-simdjson-Debug-3cb8cab3c03db50eac86.json",
+					"name" : "simdjson",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug",
+		"source" : "/Users/konstantinbelakov/CLionProjects/bitocen"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
