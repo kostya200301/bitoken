@@ -8,7 +8,7 @@
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
-#include <simdjson.h>
+#include "simdjson.h"
 #include <memory>
 
 

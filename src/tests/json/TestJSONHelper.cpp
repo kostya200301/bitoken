@@ -1,5 +1,5 @@
 #include <iostream>
-#include <libs/catch2/catch.hpp>
+#include "catch2/catch.hpp"
 #include "json/JSONHelper.h"
 #include <vector>
 #include <chrono>
