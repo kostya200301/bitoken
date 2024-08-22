@@ -31,5 +31,4 @@ TEST_CASE("Test json methods", "[model][unit][coverage]") {
     auto name_ = parseRes_["ff"].get_int64();
     CHECK(name_.value() == 123);
 
-
 }
