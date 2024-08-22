@@ -9,7 +9,7 @@ set(SOURCES
         JSONHelper.h
 )
 
-add_library(json SHARED ${SOURCES})
+add_library(json STATIC ${SOURCES})
 
 
-target_link_libraries(json PRIVATE simdjson::simdjson)
+target_link_libraries(json PUBLIC simdjson::simdjson)

@@ -35,5 +35,4 @@ TEST_CASE("Test json methods", "[model][unit][coverage]") {
         std::cout << "alalala\n";
     }
 
-
 }
