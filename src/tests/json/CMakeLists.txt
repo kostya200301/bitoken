@@ -4,10 +4,6 @@ cmake_minimum_required(VERSION 3.10)
 # Название проекта
 project(bitocen)
 
-# Устанавливаем стандарт C++17
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
 # Указываем файлы исходного кода для сборки
 set(SOURCES_JSON_TEST_FILES
         TestJSONHelper.cpp

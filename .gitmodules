@@ -4,3 +4,6 @@
 [submodule "libs/simdjson"]
 	path = libs/simdjson
 	url = https://github.com/simdjson/simdjson.git
+[submodule "libs/openssl"]
+	path = libs/openssl
+	url = https://github.com/openssl/openssl.git
