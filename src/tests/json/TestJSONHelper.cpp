@@ -3,6 +3,7 @@
 #include "json/JSONHelper.h"
 #include <vector>
 #include <chrono>
+#include <iostream>
 
 TEST_CASE("Test json methods", "[model][unit][coverage]") {
 
@@ -30,6 +31,9 @@ TEST_CASE("Test json methods", "[model][unit][coverage]") {
     auto parseRes_ = parser.parseJSON(strWithError);
     auto name_ = parseRes_["ff"].get_int64();
     CHECK(name_.value() == 123);
+    for (int i = 0; i < 100; i++) {
+        std::cout << "alalala\n";
+    }
 
 
 }

@@ -1,6 +1,6 @@
 /*
- *  Catch v2.13.9
- *  Generated: 2022-04-12 22:37:23.260201
+ *  Catch v2.13.10
+ *  Generated: 2022-10-16 11:01:23.452308
  *  ----------------------------------------------------------
  *  This file has been merged from multiple headers. Please don't edit it directly
  *  Copyright (c) 2022 Two Blue Cubes Ltd. All rights reserved.
@@ -15,7 +15,7 @@
 
 #define CATCH_VERSION_MAJOR 2
 #define CATCH_VERSION_MINOR 13
-#define CATCH_VERSION_PATCH 9
+#define CATCH_VERSION_PATCH 10
 
 #ifdef __clang__
 #    pragma clang system_header
@@ -3303,7 +3303,7 @@ namespace Matchers {
                         first = false;
                     else
                         description += " and ";
-                    description += matcher->dump();
+                    description += matcher->toString();
                 }
                 description += " )";
                 return description;
@@ -3337,7 +3337,7 @@ namespace Matchers {
                         first = false;
                     else
                         description += " or ";
-                    description += matcher->dump();
+                    description += matcher->toString();
                 }
                 description += " )";
                 return description;
@@ -3895,7 +3895,7 @@ namespace Catch {
     (Catch::ReusableStringStream() << __VA_ARGS__).str()
 
 #define CATCH_INTERNAL_ERROR(...) \
-    Catch::throw_logic_error(CATCH_MAKE_MSG( CATCH_INTERNAL_LINEINFO << ": Internal catch2 error: " << __VA_ARGS__))
+    Catch::throw_logic_error(CATCH_MAKE_MSG( CATCH_INTERNAL_LINEINFO << ": Internal Catch2 error: " << __VA_ARGS__))
 
 #define CATCH_ERROR(...) \
     Catch::throw_domain_error(CATCH_MAKE_MSG( __VA_ARGS__ ))
@@ -4551,7 +4551,7 @@ namespace Catch {
 namespace Catch {
 
     // This is a simple implementation of C++11 Uniform Random Number
-    // Generator. It does not provide all operators, because catch2
+    // Generator. It does not provide all operators, because Catch2
     // does not use it, but it should behave as expected inside stdlib's
     // distributions.
     // The implementation is based on the PCG family (http://pcg-random.org)
@@ -4585,7 +4585,7 @@ namespace Catch {
 
         std::uint64_t m_state;
         // This part of the state determines which "stream" of the numbers
-        // is chosen -- we take it as a constant for catch2, so we only
+        // is chosen -- we take it as a constant for Catch2, so we only
         // need to deal with seeding the main state.
         // Picked by reading 8 bytes from `/dev/random` :-)
         static const std::uint64_t s_inc = (0x13ed0cc53f939476ULL << 1ULL) | 1ULL;
@@ -7395,8 +7395,6 @@ namespace Catch {
             template <typename T, bool Destruct>
             struct ObjectStorage
             {
-                using TStorage = typename std::aligned_storage<sizeof(T), std::alignment_of<T>::value>::type;
-
                 ObjectStorage() : data() {}
 
                 ObjectStorage(const ObjectStorage& other)
@@ -7439,7 +7437,7 @@ namespace Catch {
                     return *static_cast<T*>(static_cast<void*>(&data));
                 }
 
-                TStorage data;
+                struct { alignas(T) unsigned char data[sizeof(T)]; }  data;
             };
         }
 
@@ -7949,7 +7947,7 @@ namespace Catch {
     #if defined(__i386__) || defined(__x86_64__)
         #define CATCH_TRAP() __asm__("int $3\n" : : ) /* NOLINT */
     #elif defined(__aarch64__)
-        #define CATCH_TRAP()  __asm__(".inst 0xd4200000")
+        #define CATCH_TRAP()  __asm__(".inst 0xd43e0000")
     #endif
 
 #elif defined(CATCH_PLATFORM_IPHONE)
@@ -10783,7 +10781,7 @@ namespace {
         Catch::getCurrentContext().getResultCapture()->handleFatalErrorCondition( message );
     }
 
-    //! Minimal size catch2 needs for its own fatal error handling.
+    //! Minimal size Catch2 needs for its own fatal error handling.
     //! Picked anecdotally, so it might not be sufficient on all
     //! platforms, and for all configurations.
     constexpr std::size_t minStackSizeForErrors = 32 * 1024;
@@ -13452,7 +13450,7 @@ namespace Catch {
     }
     void Session::libIdentify() {
         Catch::cout()
-                << std::left << std::setw(16) << "description: " << "A catch2 test executable\n"
+                << std::left << std::setw(16) << "description: " << "A Catch2 test executable\n"
                 << std::left << std::setw(16) << "category: " << "testframework\n"
                 << std::left << std::setw(16) << "framework: " << "Catch Test\n"
                 << std::left << std::setw(16) << "version: " << libraryVersion() << std::endl;
@@ -13558,7 +13556,7 @@ namespace Catch {
 
             // Handle list request
             if( Option<std::size_t> listed = list( m_config ) )
-                return static_cast<int>( *listed );
+                return (std::min) (MaxExitCode, static_cast<int>(*listed));
 
             TestGroup tests { m_config };
             auto const totals = tests.execute();
@@ -15312,7 +15310,7 @@ namespace Catch {
 
 // start catch_config_uncaught_exceptions.hpp
 
-//              Copyright catch2 Authors
+//              Copyright Catch2 Authors
 // Distributed under the Boost Software License, Version 1.0.
 //   (See accompanying file LICENSE_1_0.txt or copy at
 //        https://www.boost.org/LICENSE_1_0.txt)
@@ -15391,7 +15389,7 @@ namespace Catch {
     }
 
     Version const& libraryVersion() {
-        static Version version( 2, 13, 9, "", 0 );
+        static Version version( 2, 13, 10, "", 0 );
         return version;
     }
 
@@ -17526,12 +17524,20 @@ namespace Catch {
 
 #ifndef __OBJC__
 
+#ifndef CATCH_INTERNAL_CDECL
+#ifdef _MSC_VER
+#define CATCH_INTERNAL_CDECL __cdecl
+#else
+#define CATCH_INTERNAL_CDECL
+#endif
+#endif
+
 #if defined(CATCH_CONFIG_WCHAR) && defined(CATCH_PLATFORM_WINDOWS) && defined(_UNICODE) && !defined(DO_NOT_USE_WMAIN)
 // Standard C/C++ Win32 Unicode wmain entry point
-extern "C" int wmain (int argc, wchar_t * argv[], wchar_t * []) {
+extern "C" int CATCH_INTERNAL_CDECL wmain (int argc, wchar_t * argv[], wchar_t * []) {
 #else
 // Standard C/C++ main entry point
-int main (int argc, char * argv[]) {
+int CATCH_INTERNAL_CDECL main (int argc, char * argv[]) {
 #endif
 
     return Catch::Session().run( argc, argv );
