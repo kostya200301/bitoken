@@ -63,6 +63,152 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build install/local: phony CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build install/strip: phony CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/konstantinbelakov/CLionProjects/bitocen/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target simdjson
+
+
+#############################################
+# Order-only phony target for simdjson
+
+build cmake_object_order_depends_target_simdjson: phony || libs/simdjson/CMakeFiles/simdjson.dir
+
+build libs/simdjson/CMakeFiles/simdjson.dir/src/simdjson.cpp.o: CXX_COMPILER__simdjson_unscanned_Debug /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/src/simdjson.cpp || cmake_object_order_depends_target_simdjson
+  DEFINES = -DSIMDJSON_AVX512_ALLOWED=1 -DSIMDJSON_THREADS_ENABLED=1 -DSIMDJSON_UTF8VALIDATION=1
+  DEP_FILE = libs/simdjson/CMakeFiles/simdjson.dir/src/simdjson.cpp.o.d
+  FLAGS = -g -std=c++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics -Og
+  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/include -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/src
+  OBJECT_DIR = libs/simdjson/CMakeFiles/simdjson.dir
+  OBJECT_FILE_DIR = libs/simdjson/CMakeFiles/simdjson.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target simdjson
+
+
+#############################################
+# Link the static library libs/simdjson/libsimdjson.a
+
+build libs/simdjson/libsimdjson.a: CXX_STATIC_LIBRARY_LINKER__simdjson_Debug libs/simdjson/CMakeFiles/simdjson.dir/src/simdjson.cpp.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = libs/simdjson/CMakeFiles/simdjson.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = libs/simdjson/libsimdjson.a
+  TARGET_PDB = simdjson.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build libs/simdjson/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/libs/simdjson && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build libs/simdjson/edit_cache: phony libs/simdjson/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build libs/simdjson/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/libs/simdjson && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --regenerate-during-build -S/Users/konstantinbelakov/CLionProjects/bitocen -B/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build libs/simdjson/rebuild_cache: phony libs/simdjson/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build libs/simdjson/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build libs/simdjson/CMakeFiles/install.util: CUSTOM_COMMAND libs/simdjson/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/libs/simdjson && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build libs/simdjson/install: phony libs/simdjson/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build libs/simdjson/CMakeFiles/install/local.util: CUSTOM_COMMAND libs/simdjson/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/libs/simdjson && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build libs/simdjson/install/local: phony libs/simdjson/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build libs/simdjson/CMakeFiles/install/strip.util: CUSTOM_COMMAND libs/simdjson/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/libs/simdjson && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build libs/simdjson/install/strip: phony libs/simdjson/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /Users/konstantinbelakov/CLionProjects/bitocen/CMakeLists.txt
@@ -75,13 +221,13 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for json
 
-build cmake_object_order_depends_target_json: phony || src/json/CMakeFiles/json.dir
+build cmake_object_order_depends_target_json: phony || cmake_object_order_depends_target_simdjson
 
 build src/json/CMakeFiles/json.dir/JSONHelper.cpp.o: CXX_COMPILER__json_unscanned_Debug /Users/konstantinbelakov/CLionProjects/bitocen/src/json/JSONHelper.cpp || cmake_object_order_depends_target_json
-  DEFINES = -Djson_EXPORTS
+  DEFINES = -DSIMDJSON_THREADS_ENABLED=1 -Djson_EXPORTS
   DEP_FILE = src/json/CMakeFiles/json.dir/JSONHelper.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC -fcolor-diagnostics
-  INCLUDES = -I/opt/homebrew/Cellar/rapidjson/1.1.0/include -I/opt/homebrew/Cellar/simdjson/3.10.0/include
+  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/rapidjson/include -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/include
   OBJECT_DIR = src/json/CMakeFiles/json.dir
   OBJECT_FILE_DIR = src/json/CMakeFiles/json.dir
 
@@ -93,12 +239,11 @@ build src/json/CMakeFiles/json.dir/JSONHelper.cpp.o: CXX_COMPILER__json_unscanne
 #############################################
 # Link the shared library src/json/libjson.dylib
 
-build src/json/libjson.dylib: CXX_SHARED_LIBRARY_LINKER__json_Debug src/json/CMakeFiles/json.dir/JSONHelper.cpp.o
+build src/json/libjson.dylib: CXX_SHARED_LIBRARY_LINKER__json_Debug src/json/CMakeFiles/json.dir/JSONHelper.cpp.o | libs/simdjson/libsimdjson.a || libs/simdjson/libsimdjson.a
   ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
   INSTALLNAME_DIR = @rpath/
   LANGUAGE_COMPILE_FLAGS = -g
-  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/simdjson/3.10.0/lib  -lsimdjson
-  LINK_PATH = -L/opt/homebrew/Cellar/simdjson/3.10.0/lib
+  LINK_LIBRARIES = libs/simdjson/libsimdjson.a
   OBJECT_DIR = src/json/CMakeFiles/json.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -130,6 +275,48 @@ build src/json/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/json/rebuild_cache: phony src/json/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/json/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/json/CMakeFiles/install.util: CUSTOM_COMMAND src/json/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/json/install: phony src/json/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/json/CMakeFiles/install/local.util: CUSTOM_COMMAND src/json/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/json/install/local: phony src/json/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/json/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/json/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/json/install/strip: phony src/json/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /Users/konstantinbelakov/CLionProjects/bitocen/CMakeLists.txt
@@ -148,6 +335,7 @@ build src/model/CMakeFiles/model.dir/ConnectionsManager.cpp.o: CXX_COMPILER__mod
   DEFINES = -Dmodel_EXPORTS
   DEP_FILE = src/model/CMakeFiles/model.dir/ConnectionsManager.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC -fcolor-diagnostics
+  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/rapidjson/include
   OBJECT_DIR = src/model/CMakeFiles/model.dir
   OBJECT_FILE_DIR = src/model/CMakeFiles/model.dir
 
@@ -194,6 +382,48 @@ build src/model/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/model/rebuild_cache: phony src/model/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/model/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/model/CMakeFiles/install.util: CUSTOM_COMMAND src/model/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/model && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/model/install: phony src/model/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/model/CMakeFiles/install/local.util: CUSTOM_COMMAND src/model/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/model && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/model/install/local: phony src/model/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/model/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/model/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/model && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/model/install/strip: phony src/model/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /Users/konstantinbelakov/CLionProjects/bitocen/CMakeLists.txt
@@ -206,19 +436,21 @@ build src/model/rebuild_cache: phony src/model/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for TestJSONTestJSONHelper
 
-build cmake_object_order_depends_target_TestJSONTestJSONHelper: phony || cmake_object_order_depends_target_json
+build cmake_object_order_depends_target_TestJSONTestJSONHelper: phony || cmake_object_order_depends_target_json cmake_object_order_depends_target_simdjson
 
 build src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/Catch.cpp.o: CXX_COMPILER__TestJSONTestJSONHelper_unscanned_Debug /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/Catch.cpp || cmake_object_order_depends_target_TestJSONTestJSONHelper
+  DEFINES = -DSIMDJSON_THREADS_ENABLED=1
   DEP_FILE = src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/Catch.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/../../libs -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/.. -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/src -I/opt/homebrew/Cellar/rapidjson/1.1.0/include -I/opt/homebrew/Cellar/simdjson/3.10.0/include
+  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/rapidjson/include -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/../../libs -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/.. -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/src -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/include
   OBJECT_DIR = src/tests/CMakeFiles/TestJSONTestJSONHelper.dir
   OBJECT_FILE_DIR = src/tests/CMakeFiles/TestJSONTestJSONHelper.dir
 
 build src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/json/TestJSONHelper.cpp.o: CXX_COMPILER__TestJSONTestJSONHelper_unscanned_Debug /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/TestJSONHelper.cpp || cmake_object_order_depends_target_TestJSONTestJSONHelper
+  DEFINES = -DSIMDJSON_THREADS_ENABLED=1
   DEP_FILE = src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/json/TestJSONHelper.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/../../libs -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/.. -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/src -I/opt/homebrew/Cellar/rapidjson/1.1.0/include -I/opt/homebrew/Cellar/simdjson/3.10.0/include
+  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/rapidjson/include -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/../../libs -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/.. -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/src -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/include
   OBJECT_DIR = src/tests/CMakeFiles/TestJSONTestJSONHelper.dir
   OBJECT_FILE_DIR = src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/json
 
@@ -230,10 +462,9 @@ build src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/json/TestJSONHelper.cpp.o:
 #############################################
 # Link the executable src/tests/TestJSONTestJSONHelper
 
-build src/tests/TestJSONTestJSONHelper: CXX_EXECUTABLE_LINKER__TestJSONTestJSONHelper_Debug src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/Catch.cpp.o src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/json/TestJSONHelper.cpp.o | src/json/libjson.dylib || src/json/libjson.dylib
+build src/tests/TestJSONTestJSONHelper: CXX_EXECUTABLE_LINKER__TestJSONTestJSONHelper_Debug src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/Catch.cpp.o src/tests/CMakeFiles/TestJSONTestJSONHelper.dir/json/TestJSONHelper.cpp.o | src/json/libjson.dylib libs/simdjson/libsimdjson.a || libs/simdjson/libsimdjson.a src/json/libjson.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
-  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/simdjson/3.10.0/lib -Wl,-rpath,/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json  src/json/libjson.dylib  -lsimdjson
-  LINK_PATH = -L/opt/homebrew/Cellar/simdjson/3.10.0/lib
+  LINK_LIBRARIES = -Wl,-rpath,/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json  src/json/libjson.dylib  libs/simdjson/libsimdjson.a
   OBJECT_DIR = src/tests/CMakeFiles/TestJSONTestJSONHelper.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -263,6 +494,48 @@ build src/tests/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/tests/rebuild_cache: phony src/tests/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/tests/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/tests/CMakeFiles/install.util: CUSTOM_COMMAND src/tests/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/tests/install: phony src/tests/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/tests/CMakeFiles/install/local.util: CUSTOM_COMMAND src/tests/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/tests/install/local: phony src/tests/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/tests/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/tests/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/tests/install/strip: phony src/tests/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
 # /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/CMakeLists.txt
@@ -275,19 +548,21 @@ build src/tests/rebuild_cache: phony src/tests/CMakeFiles/rebuild_cache.util
 #############################################
 # Order-only phony target for TestJSON
 
-build cmake_object_order_depends_target_TestJSON: phony || cmake_object_order_depends_target_json src/tests/TestJSONTestJSONHelper
+build cmake_object_order_depends_target_TestJSON: phony || cmake_object_order_depends_target_json cmake_object_order_depends_target_simdjson src/tests/TestJSONTestJSONHelper
 
 build src/tests/json/CMakeFiles/TestJSON.dir/__/Catch.cpp.o: CXX_COMPILER__TestJSON_unscanned_Debug /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/Catch.cpp || cmake_object_order_depends_target_TestJSON
+  DEFINES = -DSIMDJSON_THREADS_ENABLED=1
   DEP_FILE = src/tests/json/CMakeFiles/TestJSON.dir/__/Catch.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../.. -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../../libs -I/opt/homebrew/Cellar/rapidjson/1.1.0/include -I/opt/homebrew/Cellar/simdjson/3.10.0/include
+  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/rapidjson/include -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../.. -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../../../libs -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/include
   OBJECT_DIR = src/tests/json/CMakeFiles/TestJSON.dir
   OBJECT_FILE_DIR = src/tests/json/CMakeFiles/TestJSON.dir/__
 
 build src/tests/json/CMakeFiles/TestJSON.dir/TestJSONHelper.cpp.o: CXX_COMPILER__TestJSON_unscanned_Debug /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/TestJSONHelper.cpp || cmake_object_order_depends_target_TestJSON
+  DEFINES = -DSIMDJSON_THREADS_ENABLED=1
   DEP_FILE = src/tests/json/CMakeFiles/TestJSON.dir/TestJSONHelper.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fcolor-diagnostics
-  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../.. -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../../libs -I/opt/homebrew/Cellar/rapidjson/1.1.0/include -I/opt/homebrew/Cellar/simdjson/3.10.0/include
+  INCLUDES = -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/rapidjson/include -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../.. -I/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/../../../libs -I/Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/include
   OBJECT_DIR = src/tests/json/CMakeFiles/TestJSON.dir
   OBJECT_FILE_DIR = src/tests/json/CMakeFiles/TestJSON.dir
 
@@ -299,10 +574,9 @@ build src/tests/json/CMakeFiles/TestJSON.dir/TestJSONHelper.cpp.o: CXX_COMPILER_
 #############################################
 # Link the executable src/tests/json/TestJSON
 
-build src/tests/json/TestJSON: CXX_EXECUTABLE_LINKER__TestJSON_Debug src/tests/json/CMakeFiles/TestJSON.dir/__/Catch.cpp.o src/tests/json/CMakeFiles/TestJSON.dir/TestJSONHelper.cpp.o | src/json/libjson.dylib || src/json/libjson.dylib src/tests/TestJSONTestJSONHelper
+build src/tests/json/TestJSON: CXX_EXECUTABLE_LINKER__TestJSON_Debug src/tests/json/CMakeFiles/TestJSON.dir/__/Catch.cpp.o src/tests/json/CMakeFiles/TestJSON.dir/TestJSONHelper.cpp.o | src/json/libjson.dylib libs/simdjson/libsimdjson.a || libs/simdjson/libsimdjson.a src/json/libjson.dylib src/tests/TestJSONTestJSONHelper
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk
-  LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/Cellar/simdjson/3.10.0/lib -Wl,-rpath,/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json  src/json/libjson.dylib  -lsimdjson
-  LINK_PATH = -L/opt/homebrew/Cellar/simdjson/3.10.0/lib
+  LINK_LIBRARIES = -Wl,-rpath,/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json  src/json/libjson.dylib  libs/simdjson/libsimdjson.a
   OBJECT_DIR = src/tests/json/CMakeFiles/TestJSON.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -332,6 +606,48 @@ build src/tests/json/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 
 build src/tests/json/rebuild_cache: phony src/tests/json/CMakeFiles/rebuild_cache.util
 
+
+#############################################
+# Utility command for list_install_components
+
+build src/tests/json/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build src/tests/json/CMakeFiles/install.util: CUSTOM_COMMAND src/tests/json/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/json && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build src/tests/json/install: phony src/tests/json/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build src/tests/json/CMakeFiles/install/local.util: CUSTOM_COMMAND src/tests/json/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/json && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build src/tests/json/install/local: phony src/tests/json/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build src/tests/json/CMakeFiles/install/strip.util: CUSTOM_COMMAND src/tests/json/all
+  COMMAND = cd /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/json && /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build src/tests/json/install/strip: phony src/tests/json/CMakeFiles/install/strip.util
+
 # =============================================================================
 # Target aliases.
 
@@ -345,7 +661,11 @@ build libjson.dylib: phony src/json/libjson.dylib
 
 build libmodel.dylib: phony src/model/libmodel.dylib
 
+build libsimdjson.a: phony libs/simdjson/libsimdjson.a
+
 build model: phony src/model/libmodel.dylib
+
+build simdjson: phony libs/simdjson/libsimdjson.a
 
 # =============================================================================
 # Folder targets.
@@ -355,7 +675,14 @@ build model: phony src/model/libmodel.dylib
 #############################################
 # Folder: /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug
 
-build all: phony src/json/all src/model/all src/tests/all
+build all: phony libs/simdjson/all src/json/all src/model/all src/tests/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/libs/simdjson
+
+build libs/simdjson/all: phony libs/simdjson/libsimdjson.a
 
 # =============================================================================
 
@@ -392,14 +719,14 @@ build src/tests/json/all: phony src/tests/json/TestJSON
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPkgConfig.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /Users/konstantinbelakov/CLionProjects/bitocen/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/json/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/model/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/BasicConfigVersion-SameMinorVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckSymbolExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPkgConfig.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake /Users/konstantinbelakov/CLionProjects/bitocen/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/JoinPaths.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/developer-options.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/exception-flags.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/handle-deprecations.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/implementation-flags.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/simdjson-config.cmake.in /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/simdjson-props.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/simdjson.pc.in /Users/konstantinbelakov/CLionProjects/bitocen/src/json/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/model/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake libs/simdjson/simdjson-props.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPkgConfig.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /Users/konstantinbelakov/CLionProjects/bitocen/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/json/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/model/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/BasicConfigVersion-SameMinorVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckIncludeFile.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckLibraryExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/CheckSymbolExists.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindPkgConfig.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/FindThreads.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake /Users/konstantinbelakov/CLionProjects/bitocen/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/JoinPaths.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/developer-options.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/exception-flags.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/handle-deprecations.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/implementation-flags.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/simdjson-config.cmake.in /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/cmake/simdjson-props.cmake /Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson/simdjson.pc.in /Users/konstantinbelakov/CLionProjects/bitocen/src/json/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/model/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/CMakeLists.txt /Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json/CMakeLists.txt CMakeCache.txt CMakeFiles/3.28.1/CMakeCCompiler.cmake CMakeFiles/3.28.1/CMakeCXXCompiler.cmake CMakeFiles/3.28.1/CMakeSystem.cmake libs/simdjson/simdjson-props.cmake: phony
 
 
 #############################################

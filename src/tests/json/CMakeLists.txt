@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../libs)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../libs)
 
 # Указываем файлы исходного кода для сборки
 set(SOURCES_JSON_TEST_FILES

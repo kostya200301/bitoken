@@ -34,11 +34,12 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/opt/homebrew/opt/llvm/bin/llvm-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/libs/simdjson/cmake_install.cmake")
   include("/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/json/cmake_install.cmake")
   include("/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/model/cmake_install.cmake")
   include("/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/cmake_install.cmake")

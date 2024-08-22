@@ -15,10 +15,10 @@
 ########################
 
 //Path to a program.
-CMAKE_ADDR2LINE:FILEPATH=CMAKE_ADDR2LINE-NOTFOUND
+CMAKE_ADDR2LINE:FILEPATH=/opt/homebrew/opt/llvm/bin/llvm-addr2line
 
 //Path to a program.
-CMAKE_AR:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar
+CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
@@ -27,8 +27,17 @@ CMAKE_BUILD_TYPE:STRING=Debug
 //Enable colored diagnostics throughout.
 CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 
-//CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:UNINITIALIZED=/opt/homebrew/opt/llvm/bin/clang++
+
+//LLVM archiver
+CMAKE_CXX_COMPILER_AR:FILEPATH=/opt/homebrew/Cellar/llvm/18.1.8/bin/llvm-ar
+
+//`clang-scan-deps` dependency scanner
+CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS:FILEPATH=/opt/homebrew/Cellar/llvm/18.1.8/bin/clang-scan-deps
+
+//Generate index for LLVM archive
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/opt/homebrew/Cellar/llvm/18.1.8/bin/llvm-ranlib
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
@@ -45,8 +54,17 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 //Flags used by the CXX compiler during RELWITHDEBINFO builds.
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
-//C compiler
-CMAKE_C_COMPILER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+//No help, variable specified on the command line.
+CMAKE_C_COMPILER:UNINITIALIZED=/opt/homebrew/opt/llvm/bin/clang
+
+//LLVM archiver
+CMAKE_C_COMPILER_AR:FILEPATH=/opt/homebrew/Cellar/llvm/18.1.8/bin/llvm-ar
+
+//`clang-scan-deps` dependency scanner
+CMAKE_C_COMPILER_CLANG_SCAN_DEPS:FILEPATH=/opt/homebrew/Cellar/llvm/18.1.8/bin/clang-scan-deps
+
+//Generate index for LLVM archive
+CMAKE_C_COMPILER_RANLIB:FILEPATH=/opt/homebrew/Cellar/llvm/18.1.8/bin/llvm-ranlib
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=
@@ -64,7 +82,7 @@ CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Path to a program.
-CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
+CMAKE_DLLTOOL:FILEPATH=/opt/homebrew/opt/llvm/bin/llvm-dlltool
 
 //Flags used by the linker during all build types.
 CMAKE_EXE_LINKER_FLAGS:STRING=
@@ -87,14 +105,62 @@ CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=
 //Value Computed by CMake.
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/CMakeFiles/pkgRedirects
 
+//User executables (bin)
+CMAKE_INSTALL_BINDIR:PATH=bin
+
+//Read-only architecture-independent data (DATAROOTDIR)
+CMAKE_INSTALL_DATADIR:PATH=
+
+//Read-only architecture-independent data root (share)
+CMAKE_INSTALL_DATAROOTDIR:PATH=share
+
+//Documentation root (DATAROOTDIR/doc/PROJECT_NAME)
+CMAKE_INSTALL_DOCDIR:PATH=
+
+//C header files (include)
+CMAKE_INSTALL_INCLUDEDIR:PATH=include
+
+//Info documentation (DATAROOTDIR/info)
+CMAKE_INSTALL_INFODIR:PATH=
+
+//Object code libraries (lib)
+CMAKE_INSTALL_LIBDIR:PATH=lib
+
+//Program executables (libexec)
+CMAKE_INSTALL_LIBEXECDIR:PATH=libexec
+
+//Locale-dependent data (DATAROOTDIR/locale)
+CMAKE_INSTALL_LOCALEDIR:PATH=
+
+//Modifiable single-machine data (var)
+CMAKE_INSTALL_LOCALSTATEDIR:PATH=var
+
+//Man documentation (DATAROOTDIR/man)
+CMAKE_INSTALL_MANDIR:PATH=
+
 //Path to a program.
 CMAKE_INSTALL_NAME_TOOL:FILEPATH=/usr/bin/install_name_tool
+
+//C header files for non-gcc (/usr/include)
+CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
 CMAKE_INSTALL_PREFIX:PATH=/usr/local
 
+//Run-time variable data (LOCALSTATEDIR/run)
+CMAKE_INSTALL_RUNSTATEDIR:PATH=
+
+//System admin executables (sbin)
+CMAKE_INSTALL_SBINDIR:PATH=sbin
+
+//Modifiable architecture-independent data (com)
+CMAKE_INSTALL_SHAREDSTATEDIR:PATH=com
+
+//Read-only single-machine data (etc)
+CMAKE_INSTALL_SYSCONFDIR:PATH=etc
+
 //Path to a program.
-CMAKE_LINKER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld
+CMAKE_LINKER:FILEPATH=/usr/bin/ld
 
 //No help, variable specified on the command line.
 CMAKE_MAKE_PROGRAM:UNINITIALIZED=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja
@@ -120,13 +186,13 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_NM:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/nm
+CMAKE_NM:FILEPATH=/opt/homebrew/opt/llvm/bin/llvm-nm
 
 //Path to a program.
-CMAKE_OBJCOPY:FILEPATH=CMAKE_OBJCOPY-NOTFOUND
+CMAKE_OBJCOPY:FILEPATH=/opt/homebrew/opt/llvm/bin/llvm-objcopy
 
 //Path to a program.
-CMAKE_OBJDUMP:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/objdump
+CMAKE_OBJDUMP:FILEPATH=/opt/homebrew/opt/llvm/bin/llvm-objdump
 
 //Build architectures for OSX
 CMAKE_OSX_ARCHITECTURES:STRING=
@@ -148,11 +214,26 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=bitocen
 
-//Path to a program.
-CMAKE_RANLIB:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=3.10.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=3
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=10
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
-CMAKE_READELF:FILEPATH=CMAKE_READELF-NOTFOUND
+CMAKE_RANLIB:FILEPATH=/opt/homebrew/opt/llvm/bin/llvm-ranlib
+
+//Path to a program.
+CMAKE_READELF:FILEPATH=/opt/homebrew/opt/llvm/bin/llvm-readelf
 
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
@@ -202,7 +283,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_STRIP:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip
+CMAKE_STRIP:FILEPATH=/usr/bin/strip
 
 //Path to a program.
 CMAKE_TAPI:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/tapi
@@ -228,6 +309,111 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/homebrew/bin/pkg-config
 
+//Enable AVX-512 instructions (only affects processors and compilers
+// with AVX-512 support).
+SIMDJSON_AVX512_ALLOWED:BOOL=ON
+
+//Allow usage of bash within CMake
+SIMDJSON_BASH:BOOL=ON
+
+//Build simdjson_static library along with simdjson
+SIMDJSON_BUILD_STATIC_LIB:BOOL=OFF
+
+//Select the implementation that will be used for user code. Defaults
+// to the most universal implementation in SIMDJSON_IMPLEMENTATION
+// (in the order fallback;westmere;haswell;icelake;arm64;ppc64)
+// if specified; otherwise, by default the compiler will pick the
+// best implementation that can always be selected given the compiler
+// flags.
+SIMDJSON_BUILTIN_IMPLEMENTATION:STRING=
+
+//Check for the end of the input buffer. The setting is unnecessary
+// since we require padding of the inputs. You should expect tests
+// to fail with this option turned on.
+SIMDJSON_CHECK_EOF:BOOL=OFF
+
+//the C++ standard to use for simdjson
+SIMDJSON_CXX_STANDARD:STRING=17
+
+//Enable development-time aids, such as checks for incorrect API
+// usage. Enabled by default in DEBUG.
+SIMDJSON_DEVELOPMENT_CHECKS:BOOL=OFF
+
+//Disables deprecated APIs
+SIMDJSON_DISABLE_DEPRECATED_API:BOOL=OFF
+
+//Link with thread support
+SIMDJSON_ENABLE_THREADS:BOOL=ON
+
+//Enable simdjson's exception-throwing interface
+SIMDJSON_EXCEPTIONS:BOOL=ON
+
+//Semicolon-separated list of implementations to exclude (icelake/haswell/westmere/arm64/ppc64/fallback).
+// By default, excludes any implementations that are unsupported
+// at compile time or cannot be selected at runtime.
+SIMDJSON_EXCLUDE_IMPLEMENTATION:STRING=
+
+//Set _GLIBCXX_ASSERTIONS
+SIMDJSON_GLIBCXX_ASSERTIONS:BOOL=OFF
+
+//Semicolon-separated list of implementations to include (fallback;westmere;haswell;icelake;arm64;ppc64).
+// If this is not set, any implementations that are supported at
+// compile time and may be selected at runtime will be included.
+SIMDJSON_IMPLEMENTATION:STRING=
+
+//Include the arm64 implementation
+SIMDJSON_IMPLEMENTATION_ARM64:BOOL=ON
+
+//Include the fallback implementation
+SIMDJSON_IMPLEMENTATION_FALLBACK:BOOL=ON
+
+//Include the haswell implementation
+SIMDJSON_IMPLEMENTATION_HASWELL:BOOL=ON
+
+//Include the icelake implementation
+SIMDJSON_IMPLEMENTATION_ICELAKE:BOOL=ON
+
+//Include the ppc64 implementation
+SIMDJSON_IMPLEMENTATION_PPC64:BOOL=ON
+
+//Include the westmere implementation
+SIMDJSON_IMPLEMENTATION_WESTMERE:BOOL=ON
+
+//CMake package config location relative to the install prefix
+SIMDJSON_INSTALL_CMAKEDIR:STRING=lib/cmake/simdjson
+
+//simdjson library soversion
+SIMDJSON_LIB_SOVERSION:STRING=23
+
+//simdjson library version
+SIMDJSON_LIB_VERSION:STRING=23.0.0
+
+//Sanitize addresses
+SIMDJSON_SANITIZE:BOOL=OFF
+
+//Sanitize memory
+SIMDJSON_SANITIZE_MEMORY:BOOL=OFF
+
+//Sanitize undefined behavior
+SIMDJSON_SANITIZE_UNDEFINED:BOOL=OFF
+
+//SKIP UTF8 VALIDATION.
+SIMDJSON_SKIPUTF8VALIDATION:BOOL=OFF
+
+//the SIMDJSON_STRUCTURAL_INDEXER_STEP variable
+SIMDJSON_STRUCTURAL_INDEXER_STEP:STRING=
+
+//Use the libc++ library
+SIMDJSON_USE_LIBCPP:BOOL=OFF
+
+//Enable verbose logging for internal simdjson library development.
+SIMDJSON_VERBOSE_LOGGING:BOOL=OFF
+
+//Under Visual Studio, add Zi to the compile flag and DEBUG to
+// the link file to add debugging information to the release build
+// for easier profiling inside tools like VTune
+SIMDJSON_VISUAL_STUDIO_BUILD_WITH_DEBUG_INFO_FOR_PROFILING:BOOL=OFF
+
 //Value Computed by CMake
 bitocen_BINARY_DIR:STATIC=/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/src/tests/json
 
@@ -238,10 +424,19 @@ bitocen_IS_TOP_LEVEL:STATIC=OFF
 bitocen_SOURCE_DIR:STATIC=/Users/konstantinbelakov/CLionProjects/bitocen/src/tests/json
 
 //Dependencies for the target
-json_LIB_DEPENDS:STATIC=general;simdjson;
+json_LIB_DEPENDS:STATIC=general;simdjson::simdjson;
 
 //Path to a library.
 pkgcfg_lib_SIMDJSON_simdjson:FILEPATH=/opt/homebrew/Cellar/simdjson/3.10.0/lib/libsimdjson.dylib
+
+//Value Computed by CMake
+simdjson_BINARY_DIR:STATIC=/Users/konstantinbelakov/CLionProjects/bitocen/cmake-build-debug/libs/simdjson
+
+//Value Computed by CMake
+simdjson_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+simdjson_SOURCE_DIR:STATIC=/Users/konstantinbelakov/CLionProjects/bitocen/libs/simdjson
 
 
 ########################
@@ -268,6 +463,12 @@ CMAKE_CPACK_COMMAND:INTERNAL=/Applications/CLion.app/Contents/bin/cmake/mac/aarc
 CMAKE_CTEST_COMMAND:INTERNAL=/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/ctest
 //ADVANCED property for variable: CMAKE_CXX_COMPILER
 CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
+CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS
+CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
+CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS
 CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
@@ -280,6 +481,12 @@ CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_COMPILER
 CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER_AR
+CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER_CLANG_SCAN_DEPS
+CMAKE_C_COMPILER_CLANG_SCAN_DEPS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
+CMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS
 CMAKE_C_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG
@@ -316,11 +523,45 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/Users/konstantinbelakov/CLionProjects/bitocen
+//ADVANCED property for variable: CMAKE_INSTALL_BINDIR
+CMAKE_INSTALL_BINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATADIR
+CMAKE_INSTALL_DATADIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DATAROOTDIR
+CMAKE_INSTALL_DATAROOTDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_DOCDIR
+CMAKE_INSTALL_DOCDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INCLUDEDIR
+CMAKE_INSTALL_INCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_INFODIR
+CMAKE_INSTALL_INFODIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBDIR
+CMAKE_INSTALL_LIBDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LIBEXECDIR
+CMAKE_INSTALL_LIBEXECDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALEDIR
+CMAKE_INSTALL_LOCALEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_LOCALSTATEDIR
+CMAKE_INSTALL_LOCALSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_MANDIR
+CMAKE_INSTALL_MANDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_INSTALL_NAME_TOOL
 CMAKE_INSTALL_NAME_TOOL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_OLDINCLUDEDIR
+CMAKE_INSTALL_OLDINCLUDEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_RUNSTATEDIR
+CMAKE_INSTALL_RUNSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SBINDIR
+CMAKE_INSTALL_SBINDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SHAREDSTATEDIR
+CMAKE_INSTALL_SHAREDSTATEDIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_INSTALL_SYSCONFDIR
+CMAKE_INSTALL_SYSCONFDIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
@@ -336,7 +577,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -383,6 +624,12 @@ CMAKE_UNAME:INTERNAL=/usr/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/opt/homebrew/bin/pkg-config][v0.29.2()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Have symbol fork
+HAVE_POSIX_FORK:INTERNAL=1
+//Have symbol wait
+HAVE_POSIX_WAIT:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_ARGN
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
@@ -426,8 +673,22 @@ SIMDJSON_CFLAGS:INTERNAL=-DSIMDJSON_THREADS_ENABLED=1;-I/opt/homebrew/Cellar/sim
 SIMDJSON_CFLAGS_I:INTERNAL=
 SIMDJSON_CFLAGS_OTHER:INTERNAL=-DSIMDJSON_THREADS_ENABLED=1
 SIMDJSON_FOUND:INTERNAL=1
+//ADVANCED property for variable: SIMDJSON_IMPLEMENTATION_ARM64
+SIMDJSON_IMPLEMENTATION_ARM64-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SIMDJSON_IMPLEMENTATION_FALLBACK
+SIMDJSON_IMPLEMENTATION_FALLBACK-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SIMDJSON_IMPLEMENTATION_HASWELL
+SIMDJSON_IMPLEMENTATION_HASWELL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SIMDJSON_IMPLEMENTATION_ICELAKE
+SIMDJSON_IMPLEMENTATION_ICELAKE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SIMDJSON_IMPLEMENTATION_PPC64
+SIMDJSON_IMPLEMENTATION_PPC64-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SIMDJSON_IMPLEMENTATION_WESTMERE
+SIMDJSON_IMPLEMENTATION_WESTMERE-ADVANCED:INTERNAL=1
 SIMDJSON_INCLUDEDIR:INTERNAL=/opt/homebrew/Cellar/simdjson/3.10.0/include
 SIMDJSON_INCLUDE_DIRS:INTERNAL=/opt/homebrew/Cellar/simdjson/3.10.0/include
+//ADVANCED property for variable: SIMDJSON_INSTALL_CMAKEDIR
+SIMDJSON_INSTALL_CMAKEDIR-ADVANCED:INTERNAL=1
 SIMDJSON_LDFLAGS:INTERNAL=-L/opt/homebrew/Cellar/simdjson/3.10.0/lib;-lsimdjson
 SIMDJSON_LDFLAGS_OTHER:INTERNAL=
 SIMDJSON_LIBDIR:INTERNAL=/opt/homebrew/Cellar/simdjson/3.10.0/lib
@@ -457,6 +718,8 @@ SIMDJSON_simdjson_INCLUDEDIR:INTERNAL=
 SIMDJSON_simdjson_LIBDIR:INTERNAL=
 SIMDJSON_simdjson_PREFIX:INTERNAL=
 SIMDJSON_simdjson_VERSION:INTERNAL=
+//CMAKE_INSTALL_PREFIX during last run
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
 __pkg_config_arguments_RAPIDJSON:INTERNAL=REQUIRED;rapidjson
 __pkg_config_arguments_SIMDJSON:INTERNAL=REQUIRED;simdjson
 __pkg_config_checked_RAPIDJSON:INTERNAL=1
