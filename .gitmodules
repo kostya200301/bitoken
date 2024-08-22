@@ -1,0 +1,6 @@
+[submodule "libs/rapidjson"]
+	path = libs/rapidjson
+	url = https://github.com/Tencent/rapidjson.git
+[submodule "libs/simdjson"]
+	path = libs/simdjson
+	url = https://github.com/simdjson/simdjson.git
