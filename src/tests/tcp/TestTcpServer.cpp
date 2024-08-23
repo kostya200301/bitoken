@@ -29,12 +29,10 @@ TEST_CASE("Test tcp", "[model][unit][coverage]") {
 
 
         tcp::TcpServer server(io_context, ssl_context, 12345);
-//
-//        // Запускаем асинхронное ожидание подключений
-//        server.start_accept();
-//
-//        // Запускаем io_context, чтобы начать обработку асинхронных операций
-//        io_context.run();
+
+        server.start_accept();
+
+        io_context.run();
     }
     catch (std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;

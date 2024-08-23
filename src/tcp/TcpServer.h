@@ -18,14 +18,23 @@ namespace tcp {
                   short port);
         void start_accept();
 
+        void send_to_client(const std::string& client_id, const std::string& message);
+
+
     private:
-        void handle_accept(const boost::system::error_code& error);
+        void handle_accept(std::shared_ptr<boost::asio::ssl::stream<boost::asio::ip::tcp::socket>> socket, const boost::system::error_code& error);
         void handle_client_connection(std::shared_ptr<boost::asio::ssl::stream<boost::asio::ip::tcp::socket>> socket,
                                       const boost::system::error_code& error);
+        void read_from_client(std::shared_ptr<boost::asio::ssl::stream<boost::asio::ip::tcp::socket>> socket);
+
+        std::string get_client_id(std::shared_ptr<boost::asio::ssl::stream<boost::asio::ip::tcp::socket>> socket);
 
         boost::asio::io_context& io_context_;
         boost::asio::ssl::context& ssl_context_;
         boost::asio::ip::tcp::acceptor acceptor_;
+
+        std::mutex mtx_;
+        std::unordered_map<std::string, std::shared_ptr<boost::asio::ssl::stream<boost::asio::ip::tcp::socket>>> active_connections_;
     };
 }
 

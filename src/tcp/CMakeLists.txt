@@ -3,6 +3,7 @@ project(bitocen)
 
 set(SOURCES
         TcpServer.cpp
+        TcpClient.cpp
 )
 
 # Добавляем исполняемый файл

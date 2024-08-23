@@ -10,7 +10,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Указываем файлы исходного кода для сборки
 set(SOURCES_TCP_TEST_FILES
-        TestTcp.cpp
+        TestTcpServer.cpp
+        TestTcpClient.cpp
 )
 
 set(SOURCES_TCP_TEST_FILES ${SOURCES_TCP_TEST_FILES} PARENT_SCOPE)
