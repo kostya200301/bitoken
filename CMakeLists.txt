@@ -10,12 +10,8 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/libs/simdjson)
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/boost)
 
-set(OPENSSL_ROOT_DIR /opt/homebrew/Cellar/openssl@3/3.3.1)
 find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_INCLUDE_DIR})
-message("SSSLDIR: ${OPENSSL_ROOT_DIR}")
-message("LALALALL: ${OPENSSL_LIBRARIES}")
-message("LALALALL: ${OPENSSL_CRYPTO_LIBRARY}")
 
 
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/align/include)
