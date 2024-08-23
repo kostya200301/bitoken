@@ -5,6 +5,11 @@ project(bitocen)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+if(APPLE)
+    message(STATUS "Building on macOS")
+    set(CMAKE_OSX_ARCHITECTURES "arm64")
+endif()
+
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/simdjson)
 
 
