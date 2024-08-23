@@ -8,4 +8,4 @@ set(SOURCES
 # Добавляем исполняемый файл
 add_library(tcp STATIC ${SOURCES})
 
-target_link_libraries(tcp PUBLIC Boost::system)
+target_link_libraries(tcp PUBLIC Boost::system Boost::asio OpenSSL::SSL OpenSSL::Crypto)

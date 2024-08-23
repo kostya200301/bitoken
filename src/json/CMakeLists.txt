@@ -5,6 +5,8 @@ project(bitocen)
 set(SOURCES
         JSONHelper.cpp
         JSONHelper.h
+        ../crypto/CryptoHelper.cpp
+        ../crypto/CryptoHelper.h
 )
 
 add_library(json STATIC ${SOURCES})
