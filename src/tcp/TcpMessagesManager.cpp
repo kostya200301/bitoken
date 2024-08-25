@@ -12,6 +12,8 @@
 namespace tcp {
 
     TcpMessagesManager::TcpMessagesManager(const model::MessagesQueuePtr& messages_queue) : messages_queue_(messages_queue) {
+        spdlog::info("[TCP] TcpMessagesManager: create");
+
         tcp_client_ = std::make_shared<TcpClient>(io_context_client, "localhost", 12345);
         tcp_server_ = std::make_shared<TcpServer>(io_context_server, 12345);
 
@@ -21,7 +23,7 @@ namespace tcp {
 
     }
 
-    TcpMessagesManager::~TcpMessagesManager() {
+    void TcpMessagesManager::stop() {
         spdlog::info("[TCP] TcpMessagesManager: start stopping");
 
         if (initial) {
@@ -35,6 +37,10 @@ namespace tcp {
         }
 
         spdlog::info("[TCP] TcpMessagesManager: stop");
+    }
+
+    TcpMessagesManager::~TcpMessagesManager() {
+        spdlog::info("[TCP] TcpMessagesManager: destroyed");
     }
 
     void TcpMessagesManager::init() {

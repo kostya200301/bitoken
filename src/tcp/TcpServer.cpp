@@ -168,11 +168,13 @@ namespace tcp {
     }
 
     TcpServer::~TcpServer() {
+        spdlog::info("[TCP] TcpServer: start destroying");
         boost::system::error_code ec;
         auto p = acceptor_.close(ec);
         if (ec) {
             spdlog::error("[TCP] TcpServer: Error closing acceptor: {}", ec.message());
         }
+        spdlog::info("[TCP] TcpServer: destroyed");
     }
 
 

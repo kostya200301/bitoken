@@ -26,6 +26,8 @@ namespace tcp {
 
         void init();
 
+        void stop();
+
 //        void new_message(const std::string& con_id);
 
         model::MessagesQueuePtr get_messages_queue() {

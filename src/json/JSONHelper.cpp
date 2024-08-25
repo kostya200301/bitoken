@@ -74,4 +74,8 @@ namespace json {
         error = parser.parse(str).get(document);
         return document;
     }
+
+    simdjson::dom::element JSONObjectParser::get_json() const {
+        return document;
+    }
 }

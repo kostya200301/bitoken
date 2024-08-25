@@ -1,8 +1,11 @@
 #include "MessagesQueue.h"
+#include <spdlog/spdlog.h>
 
 namespace model {
 
-    MessagesQueue::MessagesQueue(const ThreadPoolManagerPtr& pool_manager) : pool_manager_(pool_manager) {}
+    MessagesQueue::MessagesQueue(const ThreadPoolManagerPtr& pool_manager) : pool_manager_(pool_manager) {
+        spdlog::info("[MODEL] MessagesQueue: create");
+    }
 
     void MessagesQueue::enqueue(const IMessagePtr& message) {
         queue.enqueue(message);
@@ -23,6 +26,10 @@ namespace model {
             return mes;
         }
         return nullptr;
+    }
+
+    MessagesQueue::~MessagesQueue() {
+        spdlog::info("[MODEL] MessagesQueue: destroyed");
     }
 
 } // namespace model

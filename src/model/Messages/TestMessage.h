@@ -13,6 +13,8 @@ namespace model {
     class TestMessage : public IMessage {
     public:
         TestMessage(const std::string& con_id, json::JSONObjectParserPtr json_builder);
+
+        json::JSONObjectParserPtr get_json_parser() const override;
     private:
         json::JSONObjectParserPtr json_builder_;
 

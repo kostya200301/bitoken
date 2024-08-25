@@ -33,14 +33,14 @@ namespace model {
     }
 
     ThreadPoolManager::~ThreadPoolManager() {
-        spdlog::info("[MODEL] ThreadPoolManager: start stopping thread pool manager");
+        spdlog::info("[MODEL] ThreadPoolManager: start destroying");
         {
             std::lock_guard<std::mutex> lock(queue_mutex);
             stop = true;
         }
         condition.notify_all();
         wait_completion();
-        spdlog::info("[MODEL] ThreadPoolManager: stop thread pool manager");
+        spdlog::info("[MODEL] ThreadPoolManager: destroyed");
     }
 
 }

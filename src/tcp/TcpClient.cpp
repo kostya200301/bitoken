@@ -77,16 +77,16 @@ namespace tcp {
     }
 
     TcpClient::~TcpClient() {
+        spdlog::info("[TCP] TcpClient: start destroying");
         if (socket_.is_open()) {
             boost::system::error_code ec;
             socket_.close(ec); // Close the socket
 
             if (ec) {
                 spdlog::error("[TCP] TcpClient: Error while stopping the client: {}", ec.message());
-            } else {
-                spdlog::info("[TCP] TcpClient: Stopped successfully.");
             }
         }
+        spdlog::info("[TCP] TcpClient: destroyed");
     }
 
 } // namespace tcp

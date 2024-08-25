@@ -18,19 +18,23 @@ TEST_CASE("Test tcp server + clients", "[model][unit][coverage]") {
         model::Core core;
         core.configure();
 
+
         int good = 0;
         while (true) {
             auto mes = core.get_messages_manager()->get_message();
             if (mes != nullptr) {
-                std::cout << "GoodMes: " << good << "\n";
                 good++;
             }
-//            std::this_thread::sleep_for(2500ns);
+            if (good == 2500) {
+                break;
+            }
         }
 
     }
     catch (std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+    std::this_thread::sleep_for(1s);
+
 
 }

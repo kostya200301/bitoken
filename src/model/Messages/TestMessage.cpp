@@ -10,5 +10,10 @@ namespace model {
                         : json_builder_(std::move(json_builder)),
                           con_id_(con_id) {}
 
+
+    json::JSONObjectParserPtr TestMessage::get_json_parser() const {
+        return json_builder_;
+    }
+
 }
 

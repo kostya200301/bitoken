@@ -17,6 +17,8 @@ namespace model {
     public:
         MessagesManager(const tcp::TcpMessagesManagerPtr& tcp_messages_manager);
 
+        ~MessagesManager();
+
         IMessagePtr get_message() const;
 
         tcp::TcpClientPtr get_tcp_client() {

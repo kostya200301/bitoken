@@ -14,7 +14,9 @@ namespace model {
 
     class Core {
     public:
-        Core() {};
+        Core();
+
+        ~Core();
 
         void configure();
 
@@ -35,10 +37,10 @@ namespace model {
         }
 
     private:
+        tcp::TcpMessagesManagerPtr tcp_manager_mes_;
         model::MessagesManagerPtr messages_manager_;
         model::ThreadPoolManagerPtr pool_manager_;
         model::MessagesQueuePtr messages_queue_;
-        tcp::TcpMessagesManagerPtr tcp_manager_mes_;
     };
 
 }

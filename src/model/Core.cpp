@@ -13,11 +13,17 @@
 
 namespace model {
 
+    Core::Core() {
+        spdlog::info("[MODEL] Core: create");
+    }
+
     void Core::configure() {
+        spdlog::info("[MODEL] Core: configure");
+
 
 //        spdlog::set_level(spdlog::level::info);
-//        spdlog::set_level(spdlog::level::trace);
-        spdlog::set_level(spdlog::level::off);
+        spdlog::set_level(spdlog::level::trace);
+//        spdlog::set_level(spdlog::level::off);
 
         pool_manager_ = std::make_shared<model::ThreadPoolManager>();
         pool_manager_->start_threads_pool(5);
@@ -28,6 +34,13 @@ namespace model {
         tcp_manager_mes_->init();
 
         messages_manager_ = std::make_shared<model::MessagesManager>(tcp_manager_mes_);
+
+    }
+
+
+    Core::~Core() {
+        tcp_manager_mes_->stop();
+        spdlog::info("[MODEL] Core: destroy");
 
     }
 

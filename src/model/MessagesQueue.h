@@ -22,6 +22,8 @@ namespace model {
     public:
         explicit MessagesQueue(const ThreadPoolManagerPtr& pool_manager);
 
+        ~MessagesQueue();
+
         void enqueue(const IMessagePtr& message);
         void enqueue(const std::string& con_id, const std::string& message);
         IMessagePtr dequeue();

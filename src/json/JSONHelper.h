@@ -52,6 +52,8 @@ namespace json {
     public:
         simdjson::dom::element parseJSON(const std::string& str);
 
+        simdjson::dom::element get_json() const;
+
         simdjson::error_code get_error() const {
             return error;
         }
