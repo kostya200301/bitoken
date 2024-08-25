@@ -13,3 +13,6 @@
 [submodule "libs/oneTBB"]
 	path = libs/oneTBB
 	url = https://github.com/oneapi-src/oneTBB.git
+[submodule "libs/spdlog"]
+	path = libs/spdlog
+	url = https://github.com/gabime/spdlog.git
