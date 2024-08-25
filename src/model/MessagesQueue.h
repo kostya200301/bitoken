@@ -6,10 +6,11 @@
 
 #include <memory>
 #include <atomic>
+#include <string>
 #include "Messages/IMessage.h"
 #include "PoolManager.h"
 #include <spdlog/spdlog.h>
-#include <tbb/concurrent_queue.h>
+#include "concurrentqueue.h"
 
 
 namespace model {
@@ -28,7 +29,7 @@ namespace model {
     private:
         ThreadPoolManagerPtr pool_manager_;
 
-        tbb::concurrent_queue<IMessagePtr> queue;
+        moodycamel::ConcurrentQueue<IMessagePtr> queue;
 
     };
 

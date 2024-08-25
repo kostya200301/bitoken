@@ -15,4 +15,4 @@ set(SOURCES
 add_library(model STATIC ${SOURCES})
 
 # Указываем библиотеки, которые нужно подключить
-target_link_libraries(model PUBLIC json Boost::system Boost::asio TBB::tbb)
+target_link_libraries(model PUBLIC json Boost::system Boost::asio)

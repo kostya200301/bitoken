@@ -5,7 +5,7 @@ namespace model {
     MessagesQueue::MessagesQueue(const ThreadPoolManagerPtr& pool_manager) : pool_manager_(pool_manager) {}
 
     void MessagesQueue::enqueue(const IMessagePtr& message) {
-        queue.push(message);
+        queue.enqueue(message);
     }
 
     void MessagesQueue::enqueue(const std::string& con_id, const std::string& message) {
@@ -19,7 +19,7 @@ namespace model {
 
     IMessagePtr MessagesQueue::dequeue() {
         IMessagePtr mes;
-        if (queue.try_pop(mes)) {
+        if (queue.try_dequeue(mes)) {
             return mes;
         }
         return nullptr;
