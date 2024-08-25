@@ -71,7 +71,7 @@ namespace json {
     }
 
     simdjson::dom::element JSONObjectParser::parseJSON(const std::string& str) {
-        auto error = parser.parse(str).get(document);
+        error = parser.parse(str).get(document);
         return document;
     }
 }

@@ -11,24 +11,50 @@ TEST_CASE("Test tcp client", "[model][unit][coverage]") {
     short port = 12345;
 
     boost::asio::io_context io_context;
-    boost::asio::ssl::context ssl_context(boost::asio::ssl::context::tlsv12_client);
 
-    auto cert = crypto::CryptoHelper::getCertCrt();
-    ssl_context.add_certificate_authority(boost::asio::buffer(cert.data(), cert.size()));
-
-    tcp::TcpClient client(io_context, ssl_context, server, port);
+    tcp::TcpClient client(io_context, server, port);
     client.start();
 
-//    io_context.run();
     std::thread io_thread([&io_context]() {
         io_context.run();
     });
 
+    std::this_thread::sleep_for(1s);
 
-    for (int i = 0; i < 333; i++) {
-        std::this_thread::sleep_for(666ms);
-        client.send_message("Message" + std::to_string(i));
+    for (int i = 0; i < 33333; i++) {
+        if (i % 3 == 0) {
+            client.send_message("IIDIAIWDIAWIDIAWDAWDIAWID123123IIIDAWd");
+        } else {
+            client.send_message("\"I{\"type\":\"TestMessage\",\"Poni\":\" + std::to_string(i) + \"}I\"");
+        }
+
     }
 
     io_thread.join();
+
+
+//    std::string server = "localhost";
+//    short port = 12345;
+//
+//    std::vector<std::shared_ptr<tcp::TcpClient>> clients;
+//    std::vector<std::shared_ptr<boost::asio::io_context>> contexts;
+//    std::vector<std::shared_ptr<std::thread>> threadts;
+//    for (int i = 0; i < 1; i++) {
+//        contexts.push_back(std::make_shared<boost::asio::io_context>());
+//        clients.push_back(std::make_shared<tcp::TcpClient>(*contexts[i], server, port));
+//        clients[i]->start();
+//        threadts.push_back(std::make_shared<std::thread>([&contexts, i]() {
+//            contexts[i]->run();
+//        }));
+//    }
+//
+//    std::this_thread::sleep_for(3s);
+//
+//    for (int i = 0; i < 3333; i++) {
+//        for (auto client : clients) {
+//            client->send_message("Message" + std::to_string(i));
+//        }
+//    }
+
+
 }

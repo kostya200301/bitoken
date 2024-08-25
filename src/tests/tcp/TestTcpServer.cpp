@@ -1,40 +1,36 @@
 #include <iostream>
 #include "catch2/catch.hpp"
 #include "tcp/TcpServer.h"
+#include "tcp/TcpClient.h"
+#include "tcp/TcpMessagesManager.h"
+#include "model/MessagesManager.h"
+#include "model/MessagesQueue.h"
 #include "crypto/CryptoHelper.h"
+#include "model/Core.h"
+#include <thread>
+
+using namespace std::chrono_literals;
 
 
-TEST_CASE("Test tcp", "[model][unit][coverage]") {
+TEST_CASE("Test tcp server + clients", "[model][unit][coverage]") {
     CHECK(1 == 1);
     try {
-        boost::asio::io_context io_context;
+        model::Core core;
+        core.configure();
 
-        boost::asio::ssl::context ssl_context(boost::asio::ssl::context::sslv23);
-        ssl_context.set_options(boost::asio::ssl::context::default_workarounds |
-                                boost::asio::ssl::context::no_sslv2 |
-                                boost::asio::ssl::context::single_dh_use);
+        int good = 0;
+        while (true) {
+            auto mes = core.get_messages_manager()->get_message();
+            if (mes != nullptr) {
+                std::cout << "GoodMes: " << good << "\n";
+                good++;
+            }
+//            std::this_thread::sleep_for(2500ns);
+        }
 
-        // Загрузка сертификата из строки
-        ssl_context.use_certificate_chain(
-                boost::asio::buffer(crypto::CryptoHelper::getCertCrt()));
-
-        // Загрузка закрытого ключа из строки
-        ssl_context.use_private_key(
-                boost::asio::buffer(crypto::CryptoHelper::getCertKey()),
-                boost::asio::ssl::context::pem);
-
-        // Загрузка параметров DH из строки
-        ssl_context.use_tmp_dh(
-                boost::asio::buffer(crypto::CryptoHelper::getCertPem()));
-
-
-        tcp::TcpServer server(io_context, ssl_context, 12345);
-
-        server.start_accept();
-
-        io_context.run();
     }
     catch (std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
+
 }

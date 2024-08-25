@@ -14,6 +14,7 @@ endif()
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/simdjson)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/boost)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/spdlog)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/oneTBB)
 
 
 
@@ -34,6 +35,18 @@ include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/utility/include)
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/date_time/include)
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/process/include)
 include_directories(${BOOST_INCLUDE_DIRS})
+
+#boost signals
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/signals2/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/variant/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/type_index/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/parameter/include)
+
+
+#oneTBB queue
+include_directories(${CMAKE_SOURCE_DIR}/libs/oneTBB/include)
+
+
 
 
 include_directories(${CMAKE_SOURCE_DIR}/libs/rapidjson/include)

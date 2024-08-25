@@ -3,10 +3,16 @@ project(bitocen)
 
 set(SOURCES
         ConnectionsManager.cpp
+        MessagesQueue.cpp
+        Messages/TestMessage.cpp
+        Messages/IMessage.cpp
+        MessagesManager.cpp
+        PoolManager.cpp
+        Core.cpp
 )
 
 # Добавляем исполняемый файл
-add_library(model SHARED ${SOURCES})
+add_library(model STATIC ${SOURCES})
 
 # Указываем библиотеки, которые нужно подключить
-#target_link_libraries(db json)
+target_link_libraries(model PUBLIC json Boost::system Boost::asio TBB::tbb)

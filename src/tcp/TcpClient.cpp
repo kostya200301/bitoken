@@ -11,12 +11,10 @@
 namespace tcp {
 
     TcpClient::TcpClient(boost::asio::io_context& io_context,
-                         boost::asio::ssl::context& ssl_context,
                          const std::string& server,
                          short port)
             : io_context_(io_context),
-              ssl_context_(ssl_context),
-              socket_(io_context, ssl_context),
+              socket_(io_context),
               server_(server),
               port_(port) {
     }
@@ -25,26 +23,18 @@ namespace tcp {
         boost::asio::ip::tcp::resolver resolver(io_context_);
         boost::asio::ip::tcp::resolver::results_type endpoints = resolver.resolve(server_, std::to_string(port_));
 
-        boost::asio::async_connect(socket_.lowest_layer(), endpoints,
+        boost::asio::async_connect(socket_, endpoints,
                                    [this](const boost::system::error_code& error, const boost::asio::ip::tcp::endpoint&) {
-                                       if (!error) {
-                                           socket_.async_handshake(boost::asio::ssl::stream_base::client,
-                                                                   [this](const boost::system::error_code& handshake_error) {
-                                                                       handle_handshake(handshake_error);
-                                                                   });
-                                       } else {
-                                           spdlog::error("[TCP] TcpClient: Connect failed {}", error.message());
-                                       }
+                                       handle_connect(error);
                                    });
     }
 
-    void TcpClient::handle_handshake(const boost::system::error_code& error) {
+    void TcpClient::handle_connect(const boost::system::error_code& error) {
         if (!error) {
-            spdlog::info("[TCP] TcpClient: TLS handshake succeeded");
-            start_reading(); // Start reading from server
-            send_message("Hello, server!"); // Send initial message
+            spdlog::info("[TCP] TcpClient: Connect succeeded");
+            start_reading();
         } else {
-            spdlog::error("[TCP] TcpClient: TLS handshake failed {}", error.message());
+            spdlog::error("[TCP] TcpClient: Connect failed {}", error.message());
         }
     }
 
@@ -82,8 +72,21 @@ namespace tcp {
     }
 
     std::string TcpClient::get_server_id() const {
-        return socket_.lowest_layer().remote_endpoint().address().to_string() + ":" +
-               std::to_string(socket_.lowest_layer().remote_endpoint().port());
+        return socket_.remote_endpoint().address().to_string() + ":" +
+               std::to_string(socket_.remote_endpoint().port());
+    }
+
+    TcpClient::~TcpClient() {
+        if (socket_.is_open()) {
+            boost::system::error_code ec;
+            socket_.close(ec); // Close the socket
+
+            if (ec) {
+                spdlog::error("[TCP] TcpClient: Error while stopping the client: {}", ec.message());
+            } else {
+                spdlog::info("[TCP] TcpClient: Stopped successfully.");
+            }
+        }
     }
 
 } // namespace tcp

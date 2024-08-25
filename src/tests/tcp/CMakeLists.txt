@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(SOURCES_TCP_TEST_FILES
         TestTcpServer.cpp
         TestTcpClient.cpp
+        TestTcpMessagesManager.cpp
 )
 
 set(SOURCES_TCP_TEST_FILES ${SOURCES_TCP_TEST_FILES} PARENT_SCOPE)

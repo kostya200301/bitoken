@@ -48,8 +48,14 @@ namespace json {
     private:
         simdjson::dom::parser parser;
         simdjson::dom::element document;
+        simdjson::error_code error;
     public:
         simdjson::dom::element parseJSON(const std::string& str);
+
+        simdjson::error_code get_error() const {
+            return error;
+        }
+
     };
 
     JSONObjectBuilderPtr getEmptyJSON();
