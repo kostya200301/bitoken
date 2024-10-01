@@ -34,7 +34,7 @@ namespace tcp {
         std::string get_server_id() const;
 
         mutable std::mutex m_mutex;
-        bool wright_in_process;
+        bool wright_in_process = false;
         std::queue<std::string> message_queue_;
 
         boost::asio::io_context& io_context_;

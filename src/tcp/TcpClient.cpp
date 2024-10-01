@@ -39,18 +39,13 @@ namespace tcp {
     }
 
     void TcpClient::send_message(const std::string& message) {
-        bool do_write_ = false;
-        {
-            std::lock_guard<std::mutex> lock(m_mutex);
-            message_queue_.push(message);
-            if (!wright_in_process) {
-                wright_in_process = true;
-                do_write_ = true;
-            }
-        }
-        if (do_write_) {
+        std::lock_guard<std::mutex> lock(m_mutex);
+        message_queue_.push(message);
+        if (!wright_in_process) {
+            wright_in_process = true;
             do_write();
         }
+
     }
 
     void TcpClient::do_write() {
