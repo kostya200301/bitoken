@@ -16,3 +16,6 @@
 [submodule "libs/concurrentqueue"]
 	path = libs/concurrentqueue
 	url = https://github.com/cameron314/concurrentqueue.git
+[submodule "libs/oneTBB"]
+	path = libs/oneTBB
+	url = https://github.com/oneapi-src/oneTBB.git
