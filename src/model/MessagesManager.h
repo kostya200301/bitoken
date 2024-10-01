@@ -21,8 +21,8 @@ namespace model {
 
         IMessagePtr get_message() const;
 
-        tcp::TcpClientPtr get_tcp_client() {
-            return tcp_messages_manager_->get_tcp_client();
+        tcp::TcpClientPtr get_tcp_client(const std::string& id) { // WARN Еще нужен вариант по ip, port и data
+            return tcp_messages_manager_->get_tcp_client(id);
         }
 
         tcp::TcpMessagesManagerPtr get_tcp_messages_manager() {

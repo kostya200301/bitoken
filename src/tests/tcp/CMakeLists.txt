@@ -13,6 +13,8 @@ set(SOURCES_TCP_TEST_FILES
         TestTcpServer.cpp
         TestTcpClient.cpp
         TestTcpMessagesManager.cpp
+        TestBuffersPool.cpp
+        TestBuffers.cpp
 )
 
 set(SOURCES_TCP_TEST_FILES ${SOURCES_TCP_TEST_FILES} PARENT_SCOPE)

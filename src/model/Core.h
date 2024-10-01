@@ -18,7 +18,7 @@ namespace model {
 
         ~Core();
 
-        void configure();
+        void configure(int server_port);
 
         model::MessagesManagerPtr get_messages_manager() {
             return messages_manager_;

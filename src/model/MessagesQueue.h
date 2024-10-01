@@ -26,6 +26,7 @@ namespace model {
 
         void enqueue(const IMessagePtr& message);
         void enqueue(const std::string& con_id, const std::string& message);
+        int get_size_approx() const;
         IMessagePtr dequeue();
 
     private:

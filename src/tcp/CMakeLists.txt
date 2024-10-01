@@ -5,6 +5,10 @@ set(SOURCES
         TcpServer.cpp
         TcpClient.cpp
         TcpMessagesManager.cpp
+        BuffersPool.cpp
+        Buffer.cpp
+        BufferWorm.cpp
+        BuffersManager.cpp
 )
 
 # Добавляем исполняемый файл

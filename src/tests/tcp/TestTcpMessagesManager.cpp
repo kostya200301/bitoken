@@ -15,7 +15,7 @@ TEST_CASE("Test tcp messages manager", "[model][unit][coverage]") {
     model::ThreadPoolManagerPtr pool_manager = std::make_shared<model::ThreadPoolManager>();
     pool_manager->start_threads_pool(5);
     auto messages_queue = std::make_shared<model::MessagesQueue>(pool_manager);
-    tcp::TcpMessagesManager manager(messages_queue);
+    tcp::TcpMessagesManager manager(messages_queue, 12345, 5);
 
 //    manager.add_stream_buf("lalipop");
 //

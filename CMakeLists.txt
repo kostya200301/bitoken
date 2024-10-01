@@ -15,6 +15,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/libs/simdjson)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/boost)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/spdlog)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/concurrentqueue)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/oneTBB)
 
 
 
@@ -54,6 +55,9 @@ include_directories(${CMAKE_SOURCE_DIR}/src)
 
 #Spdlog
 include_directories(${CMAKE_SOURCE_DIR}/libs/spdlog/include)
+
+#oneTBB multiTHREAD
+include_directories(${CMAKE_SOURCE_DIR}/libs/oneTBB/include)
 
 
 add_subdirectory(src/json)

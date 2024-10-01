@@ -11,6 +11,7 @@
 #include "model/MessagesQueue.h"
 #include "TcpClient.h"
 #include "TcpServer.h"
+#include "BuffersManager.h"
 
 namespace tcp {
 
@@ -20,7 +21,7 @@ namespace tcp {
 
     class TcpMessagesManager : public std::enable_shared_from_this<TcpMessagesManager> {
     public:
-        explicit TcpMessagesManager(const model::MessagesQueuePtr& messages_queue);
+        explicit TcpMessagesManager(const model::MessagesQueuePtr& messages_queue, size_t server_port, size_t threads_count);
 
         ~TcpMessagesManager();
 
@@ -34,13 +35,19 @@ namespace tcp {
             return messages_queue_;
         }
 
-        tcp::TcpClientPtr get_tcp_client() {
-            return tcp_client_;
+        tcp::TcpClientPtr get_tcp_client(const std::string& id) {
+            auto it = tcp_clients_.find(id);
+            if (it != tcp_clients_.end()) {
+                return it->second;
+            }
+            return nullptr;
         }
+
+        tcp::TcpClientPtr add_tcp_client(const std::string & host, int port, const std::string& data);
 
     private:
 
-        void start_client();
+        void start_client(const std::string& id);
 
         void start_server();
 
@@ -48,16 +55,18 @@ namespace tcp {
 
         bool initial = false;
 
-        boost::asio::io_context io_context_client;
-        boost::asio::io_context io_context_server;
+        bool io_context_client_act = false;
+        boost::asio::io_context io_context_client_;
+        boost::asio::io_context io_context_server_;
 
-        scoped_connection_ptr new_messages_slot;
+        BuffersManagerPtr buffers_manager_;
+        BuffersPoolPtr buffers_pool_;
 
-        std::unique_ptr<std::thread> io_thread_client;
+        std::unordered_map<std::string, std::unique_ptr<std::thread>> io_thread_clients_;
         std::unique_ptr<std::thread> io_thread_server;
 
         // IMPORTANT after contexts and threads!!
-        TcpClientPtr tcp_client_;
+        std::unordered_map<std::string, TcpClientPtr> tcp_clients_;
         TcpServerPtr tcp_server_;
     };
 
