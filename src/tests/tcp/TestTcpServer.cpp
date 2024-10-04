@@ -108,9 +108,13 @@ TEST_CASE("Test tcp server + clients", "[model][unit][coverage]") {
         model::Core core;
         core.configure(12345);
 
+        int NUM_MES = 50000;
+        int NUM_SENDERS = 5;
+        int SLEEP_BET_MES_MS = 0;
+
         std::vector<std::shared_ptr<model::Core>> senders;
         std::vector<std::thread> threads;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < NUM_SENDERS; i++) {
             auto new_core_sender = std::make_shared<model::Core>();
             senders.push_back(new_core_sender);
             senders[i]->configure(12346 + i);
@@ -122,13 +126,15 @@ TEST_CASE("Test tcp server + clients", "[model][unit][coverage]") {
         std::vector<std::thread> threads2;
         for (int h = 0; h < senders.size(); h++) {
             threads2.emplace_back(std::thread([&, h] () {
-                    for (int k = 0; k < 5000; k++) {
+                    for (int k = 0; k < NUM_MES; k++) {
                         senders[h]->get_tcp_manager_mes()->get_tcp_client("localhost::12345::inf" + std::to_string(h))->send_message(data);
+                        SLEEP_MS(SLEEP_BET_MES_MS);
+//                        SLEEP_BET_MES_MS++;
                     }
             }));
         }
 
-        while (core.get_messages_queue()->get_size_approx() != 5000 * 5 * 5) {
+        while (core.get_messages_queue()->get_size_approx() != NUM_MES * 5 * NUM_SENDERS) {
             spdlog::info("Queue size: {}", core.get_messages_queue()->get_size_approx());
             SLEEP_S(1);
         }
@@ -136,7 +142,7 @@ TEST_CASE("Test tcp server + clients", "[model][unit][coverage]") {
 
         SLEEP_S(1);
 
-        CHECK(core.get_messages_queue()->get_size_approx() == 5000 * 5 * 5);
+        CHECK(core.get_messages_queue()->get_size_approx() == NUM_MES * 5 * NUM_SENDERS);
 
         for (int i = 0; i < threads.size(); i++) {
             threads[i].join();

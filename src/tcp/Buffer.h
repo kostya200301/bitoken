@@ -24,11 +24,20 @@ namespace tcp {
             buffer_ = std::make_shared<boost::asio::streambuf>();
         }
 
+        Buffer() : id_(-1) {
+            spdlog::info("[TCP] Buffer: create id");
+            buffer_ = std::make_shared<boost::asio::streambuf>();
+        }
+
         std::shared_ptr<boost::asio::streambuf> get_boost_buffer() {
             return buffer_;
         }
 
         void finish_work();
+
+        size_t get_id() {
+            return id_;
+        }
 
     public:
         INLINE_SIGNAL(finish_work, void());

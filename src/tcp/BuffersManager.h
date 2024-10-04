@@ -23,7 +23,7 @@ namespace tcp {
 
     class BuffersManager {
     public:
-        BuffersManager(const BuffersPoolPtr& buffer_pool, const model::MessagesQueuePtr& messages_queue);
+        BuffersManager(const BuffersPoolPtr& buffer_pool, const model::MessagesQueuePtr& messages_queue, size_t threads_count);
 
         void add_new_buffer(const std::string& client_id, const BufferPtr& buffer);
 
@@ -34,9 +34,12 @@ namespace tcp {
         BufferPtr get_buffer();
 
     private:
+
         std::mutex mtx_;
         std::unordered_map<std::string, BufferWormPtr> buffers_;
         std::unordered_map<std::string, scoped_connection_ptr> buffers_slots_;
+
+        model::ThreadPoolManagerPtr threads_pool_;
 
         model::MessagesQueuePtr messages_queue_;
 

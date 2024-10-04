@@ -15,7 +15,7 @@ namespace tcp {
         spdlog::info("[TCP] TcpMessagesManager: create");
 
         buffers_pool_ = std::make_shared<BuffersPool>(threads_count);
-        buffers_manager_ = std::make_shared<BuffersManager>(buffers_pool_, messages_queue_);
+        buffers_manager_ = std::make_shared<BuffersManager>(buffers_pool_, messages_queue_, threads_count);
         tcp_server_ = std::make_shared<TcpServer>(io_context_server_, server_port, buffers_manager_);
     }
 

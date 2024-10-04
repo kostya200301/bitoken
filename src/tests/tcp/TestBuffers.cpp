@@ -19,7 +19,7 @@ TEST_CASE("Test tcp client", "[model][unit][coverage]") {
     auto mes_queue = std::make_shared<model::MessagesQueue>(thread_pool);
 
     auto buf_pool = std::make_shared<tcp::BuffersPool>(5);
-    auto manager = std::make_shared<tcp::BuffersManager>(buf_pool, mes_queue);
+    auto manager = std::make_shared<tcp::BuffersManager>(buf_pool, mes_queue, 6);
     manager->add_new_client("lalipop");
 
     auto buf1 = manager->get_buffer();

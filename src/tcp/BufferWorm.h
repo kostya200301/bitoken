@@ -35,8 +35,6 @@ namespace tcp {
 
         void read_all_jsons();
 
-        ReadJSONStatus read_all();
-
     public:
         INLINE_SIGNAL(new_message, void(const std::string& con_id, const std::string& mes));
 
@@ -49,6 +47,8 @@ namespace tcp {
         ReadJSONStatus read_one_json();
 
         ReadJSONStatus try_read_crazy_json();
+
+        ReadJSONStatus read_all();
     };
 }
 

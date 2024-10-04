@@ -6,7 +6,7 @@
 #define BITOCEN_BUFFERSPOOL_H
 
 #include "Buffer.h"
-#include "unordered_map"
+#include "queue"
 #include <spdlog/spdlog.h>
 
 
@@ -23,19 +23,16 @@ namespace tcp {
 
         size_t get_free_buffers_count();
 
-        size_t get_busy_buffers_count();
-
     private:
         std::mutex mtx_;
-        std::unordered_map<size_t, BufferPtr> free_buffers_;
-        std::unordered_map<size_t, BufferPtr> busy_buffers_;
+        std::queue<BufferPtr> buffers_;
 
         std::unordered_map<size_t, scoped_connection_ptr> buffer_slots_;
 
-        void take_from_busy_put_to_free(size_t id);
+        void take_from_busy_put_to_free(const std::shared_ptr<Buffer>& buf);
 
-        size_t last_buffer_id_;
         size_t init_size_;
+        size_t cur_id_ = 0;
 
     };
 }

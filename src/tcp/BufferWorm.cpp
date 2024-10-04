@@ -8,11 +8,9 @@ namespace tcp {
     BufferWorm::BufferWorm(const std::string& client_id) : client_id_(client_id) {}
 
     void BufferWorm::add_buffer(const BufferPtr& buffer) {
-        {
-            std::lock_guard<std::mutex> lock(mtx_);
-            buffers_.push_back(buffer);
-        }
-        read_all_jsons();
+        std::lock_guard<std::mutex> lock(mtx_);
+        buffers_.push_back(buffer);
+//        read_all_jsons(); // Думаю надо тригерить какую то штуку которая будет в параллеле обрабатывать запросы
     }
 
     BufferPtr BufferWorm::get_buffer(size_t ind) {
@@ -27,12 +25,11 @@ namespace tcp {
     void BufferWorm::read_all_jsons() {
         spdlog::info("[TCP] BufferWorm: start read JSONs for client: {}", client_id_);
         std::lock_guard<std::mutex> lock(mtx_);
-
         read_all();
     }
 
-    ReadJSONStatus BufferWorm::read_all() {
-        int buffers_size = buffers_.size();
+    ReadJSONStatus BufferWorm::read_all() { // WARN переделать так, чтобы не было привязки к бустовому буферу
+        size_t buffers_size = buffers_.size();
         bool write = false;
         int last_i_end = -1;
         int last_j_end = -1;
@@ -67,10 +64,9 @@ namespace tcp {
                             return ReadJSONStatus::FoundAll;
                         }
                         if (last_i_end == -1) {
-                            spdlog::info("DODELAT"); // DODELAT
+                            spdlog::info("DODELAT"); // ERROR DODELAT
                         }
                     }
-//                    break;
                 }
 
 
@@ -100,13 +96,12 @@ namespace tcp {
                             }
 
                         }
-
-//                        spdlog::info("Mes: {}", result);
-                        on_new_message_(client_id_, result); // убрать из лока
+                        on_new_message_(client_id_, result); // WARN убрать из лока
                     }
                     write = false;
                 }
             }
         }
+        return ReadJSONStatus::FoundAll;
     }
 }
