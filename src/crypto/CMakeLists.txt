@@ -10,4 +10,4 @@ set(SOURCES
 add_library(crypto STATIC ${SOURCES})
 
 
-#target_link_libraries(crypto PUBLIC )
+target_link_libraries(crypto PUBLIC ecc cmocka-static)

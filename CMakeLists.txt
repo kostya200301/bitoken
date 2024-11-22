@@ -17,6 +17,9 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/libs/spdlog)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/concurrentqueue)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/oneTBB)
 
+# ???
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/ecc)
+
 
 
 find_package(OpenSSL REQUIRED)
@@ -59,8 +62,13 @@ include_directories(${CMAKE_SOURCE_DIR}/libs/spdlog/include)
 #oneTBB multiTHREAD
 include_directories(${CMAKE_SOURCE_DIR}/libs/oneTBB/include)
 
+#ecc crypto for re-encrypt (re write??)
+include_directories(${CMAKE_SOURCE_DIR}/libs/ecc)
+include_directories(${CMAKE_SOURCE_DIR}/libs/ecc/src)
+#include_directories(${CMAKE_SOURCE_DIR}/libs/ecc/build/_deps/cmocka-src/include/)
 
 add_subdirectory(src/json)
 add_subdirectory(src/model)
 add_subdirectory(src/tcp)
+add_subdirectory(src/crypto)
 add_subdirectory(src/tests)
