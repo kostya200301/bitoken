@@ -3,6 +3,7 @@
 #include "tcp/BuffersManager.h"
 #include <thread>
 #include <spdlog/spdlog.h>
+#include "tests/TestUtils.h"
 using namespace std::chrono_literals;
 
 
@@ -13,6 +14,8 @@ void write_to_buffer(std::shared_ptr<boost::asio::streambuf> buffer, const std::
 
 TEST_CASE("Test tcp client", "[model][unit][coverage]") {
     spdlog::set_level(spdlog::level::trace);
+
+    size_t COUNT = 50000;
 
     auto thread_pool = std::make_shared<model::ThreadPoolManager>();
 
@@ -35,12 +38,18 @@ TEST_CASE("Test tcp client", "[model][unit][coverage]") {
     write_to_buffer(buf3->get_boost_buffer(), ",\"Petya\":" + std::to_string(312) + "}IACASCACAC}IAXAWXAI{\"lal");
     manager->add_new_buffer("lalipop", buf3);
 
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < COUNT; i++) {
         auto buf = manager->get_buffer();
         write_to_buffer(buf->get_boost_buffer(), "I{\"type\":\"TestMessage\",\"Poni\":" + std::to_string(121 + i) + "}I");
         manager->add_new_buffer("lalipop", buf);
     }
 
-    
+
+
+    WAIT_CONDITION_S(mes_queue->get_size_approx() == COUNT + 1, 100);
+    SLEEP_S(3);
+    CHECK(mes_queue->get_size_approx() == COUNT + 1);
+
+
 
 }

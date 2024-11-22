@@ -42,7 +42,7 @@ static constexpr int DEFAULT_TIMEOUT{20};
     };
 
 #define WAIT_CONDITION_MS(PRED, TIMEOUT_MS)                                                                            \
-    APP_TRACE << "WAIT_CONDITION_MS(" #PRED ")";                                                                       \
+//    APP_TRACE << "WAIT_CONDITION_MS(" #PRED ")";                                                                       \
     for (int timeout = TIMEOUT_MS; ![&] { return PRED; }() && timeout > 0; timeout -= 100) {                           \
         sleep_ms(100);                                                                                                 \
     };                                                                                                                 \
