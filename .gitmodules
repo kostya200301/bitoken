@@ -19,6 +19,3 @@
 [submodule "libs/oneTBB"]
 	path = libs/oneTBB
 	url = https://github.com/oneapi-src/oneTBB.git
-[submodule "libs/ecc"]
-	path = libs/ecc
-	url = https://github.com/aldenml/ecc.git

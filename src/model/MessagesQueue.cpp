@@ -12,12 +12,6 @@ namespace model {
     }
 
     void MessagesQueue::enqueue(const std::string& con_id, const std::string& message) {
-//        pool_manager_->add_task([self = shared_from_this(), con_id, message]() {
-//            auto mes = make_message(con_id, message);
-//            if (mes != nullptr) {
-//                self->enqueue(mes);
-//            }
-//        });
         auto mes = make_message(con_id, message);
         if (mes != nullptr) {
             enqueue(mes);

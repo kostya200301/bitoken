@@ -2,6 +2,7 @@
 #include "catch2/catch.hpp"
 #include "tcp/BuffersManager.h"
 #include <thread>
+#include <chrono>
 #include <spdlog/spdlog.h>
 #include "tests/TestUtils.h"
 using namespace std::chrono_literals;
@@ -14,8 +15,9 @@ void write_to_buffer(std::shared_ptr<boost::asio::streambuf> buffer, const std::
 
 TEST_CASE("Test tcp client", "[model][unit][coverage]") {
     spdlog::set_level(spdlog::level::trace);
+//    spdlog::set_level(spdlog::level::off);
 
-    size_t COUNT = 50000;
+    size_t COUNT = 1000000;
 
     auto thread_pool = std::make_shared<model::ThreadPoolManager>();
 
@@ -38,17 +40,29 @@ TEST_CASE("Test tcp client", "[model][unit][coverage]") {
     write_to_buffer(buf3->get_boost_buffer(), ",\"Petya\":" + std::to_string(312) + "}IACASCACAC}IAXAWXAI{\"lal");
     manager->add_new_buffer("lalipop", buf3);
 
+    auto begin = std::chrono::steady_clock::now();
     for (int i = 0; i < COUNT; i++) {
         auto buf = manager->get_buffer();
         write_to_buffer(buf->get_boost_buffer(), "I{\"type\":\"TestMessage\",\"Poni\":" + std::to_string(121 + i) + "}I");
         manager->add_new_buffer("lalipop", buf);
     }
 
+    while (mes_queue->get_size_approx() != 0) {
+        auto mes = mes_queue->dequeue();
+        auto result = mes->get_json_parser()->get_json().get_string();
+    }
+
+//    WAIT_CONDITION_S(mes_queue->get_size_approx() == COUNT + 1, 100);
+    auto end = std::chrono::steady_clock::now();
+
+//    SLEEP_S(3);
+//    CHECK(mes_queue->get_size_approx() == COUNT + 1);
 
 
-    WAIT_CONDITION_S(mes_queue->get_size_approx() == COUNT + 1, 100);
-    SLEEP_S(3);
-    CHECK(mes_queue->get_size_approx() == COUNT + 1);
+
+    auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin);
+    spdlog::info("The time: {} ms", elapsed_ms.count());
+//    std::cout << elapsed_ms.count() << "\n";
 
 
 

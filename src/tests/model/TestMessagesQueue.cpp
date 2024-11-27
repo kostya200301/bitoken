@@ -141,12 +141,19 @@ TEST_CASE("Test messages queue", "[model][unit][coverage]") {
         }
     });
 
+    auto start = std::chrono::steady_clock::now();
+
     int sz = queue->get_size_approx();
     while (sz != 6 * N) {
         spdlog::trace("Queue size: {}", sz);
         std::this_thread::sleep_for(666ms);
         sz = queue->get_size_approx();
     }
+
+    auto end = std::chrono::steady_clock::now();
+    auto elapsed_ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    spdlog::info("The time: {} ms", elapsed_ms.count());
+
 
     spdlog::trace("Queue size: {}", sz);
     CHECK(queue->get_size_approx() == 6 * N);
