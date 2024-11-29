@@ -23,6 +23,16 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/libs/openfhe-development)
 find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_INCLUDE_DIR})
 
+
+find_package(OpenMP REQUIRED)
+
+if (OPENMP_FOUND)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    link_directories(${OpenMP_LIBRARIES})
+else()
+    message(FATAL_ERROR "OpenMP not found!")
+endif()
+
 # Boost asio
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/align/include)
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/mpl/include)
@@ -60,6 +70,15 @@ include_directories(${CMAKE_SOURCE_DIR}/libs/spdlog/include)
 #oneTBB multiTHREAD
 include_directories(${CMAKE_SOURCE_DIR}/libs/oneTBB/include)
 
+#openFHE crypto
+include_directories(${CMAKE_SOURCE_DIR}/libs/openfhe-development/src/pke/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/openfhe-development/src/core/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/openfhe-development/third-party)
+include_directories(${CMAKE_SOURCE_DIR}/libs/openfhe-development/third-party/cereal/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/openfhe-development/src/binfhe/include)
+# ???????
+include_directories(${CMAKE_BINARY_DIR}/libs/openfhe-development/src/core)
+# ?????
 
 add_subdirectory(src/json)
 add_subdirectory(src/model)
