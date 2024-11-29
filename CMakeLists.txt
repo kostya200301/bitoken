@@ -16,6 +16,7 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/libs/boost)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/spdlog)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/concurrentqueue)
 add_subdirectory(${CMAKE_SOURCE_DIR}/libs/oneTBB)
+add_subdirectory(${CMAKE_SOURCE_DIR}/libs/openfhe-development)
 
 
 

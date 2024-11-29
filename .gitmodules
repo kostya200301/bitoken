@@ -19,3 +19,6 @@
 [submodule "libs/oneTBB"]
 	path = libs/oneTBB
 	url = https://github.com/oneapi-src/oneTBB.git
+[submodule "libs/openfhe-development"]
+	path = libs/openfhe-development
+	url = https://github.com/openfheorg/openfhe-development.git
