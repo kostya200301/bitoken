@@ -2,6 +2,13 @@ cmake_minimum_required(VERSION 3.10)
 
 project(bitocen)
 
+# add dop dirs
+include_directories(${CMAKE_INCLUDE_PATH})
+link_directories(${CMAKE_LIBRARY_PATH})
+
+
+message(STATUS "C++ Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_EXTENSIONS NO)
@@ -24,14 +31,6 @@ find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_INCLUDE_DIR})
 
 
-find_package(OpenMP REQUIRED)
-
-if (OPENMP_FOUND)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-    link_directories(${OpenMP_LIBRARIES})
-else()
-    message(FATAL_ERROR "OpenMP not found!")
-endif()
 
 # Boost asio
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/align/include)
