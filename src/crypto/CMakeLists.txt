@@ -6,11 +6,16 @@ set(SOURCES
         CryptoHelper.cpp
         openFHE/KeysGenerator.cpp
         openFHE/CryptoContext.cpp
+        openFHE/KeyPair.cpp
+        openFHE/PlainText.cpp
+        openFHE/Ciphertext.cpp
+        openFHE/PublicKey.cpp
+        openFHE/SecretKey.cpp
+        openFHE/RecryptKey.cpp
 )
 
 add_library(crypto STATIC ${SOURCES})
 
-message("FFFFFF: ${PKELIBS}") # PUBLIC;OPENFHEpke;PUBLIC;OPENFHEcore;PUBLIC;OPENFHEbinfhe;-Xpreprocessor -fopenmp -lomp -Wno-unused-command-line-argument
 
 #target_link_libraries(crypto PUBLIC )
 target_link_libraries (crypto PUBLIC OPENFHEpke OPENFHEcore OPENFHEbinfhe)

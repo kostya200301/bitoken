@@ -6,7 +6,11 @@
 #define BITOCEN_ICRYPTOCONTEXT_H
 
 #include <memory>
-#include "KeyPair.h"
+#include "IKeyPair.h"
+#include "IPlainText.h"
+#include "ICiphertext.h"
+#include "IPublicKey.h"
+#include "IRecryptKey.h"
 
 namespace crypto {
 
@@ -14,7 +18,18 @@ namespace crypto {
     using ICryptoContextPtr = std::shared_ptr<ICryptoContext>;
 
     class ICryptoContext {
-        virtual KeyPairPtr GenerateFHEKeyPair() = 0;
+    public:
+        virtual IKeyPairPtr generate_key_pair() = 0;
+
+        virtual IPlainTextPtr create_plain_text(const std::vector<int64_t>& data) = 0;
+
+        virtual ICiphertextPtr encrypt(const IPublicKeyPtr& pk, const IPlainTextPtr& pt) = 0;
+
+        virtual IPlainTextPtr decrypt(const ISecretKeyPtr& sk, const ICiphertextPtr& cipher_text) = 0;
+
+        virtual IRecryptKeyPtr generate_recrypt_key(const ISecretKeyPtr& sk, const IPublicKeyPtr& pk) = 0;
+
+        virtual ICiphertextPtr reencrypt(const ICiphertextPtr& cipher_text, const IRecryptKeyPtr& rekey) = 0;
     };
 
 }

@@ -6,7 +6,7 @@
 #define BITOCEN_IKEYGENERATOR_H
 
 #include <memory>
-#include "KeyPair.h"
+#include "IKeyPair.h"
 
 namespace crypto {
 
@@ -14,7 +14,7 @@ namespace crypto {
     using IKeysGeneratorPtr = std::shared_ptr<IKeysGenerator>;
 
     class IKeysGenerator {
-        virtual KeyPairPtr GenerateFHEKeyPair() = 0;
+        virtual IKeyPairPtr GenerateFHEKeyPair() = 0;
     };
 
 }

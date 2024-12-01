@@ -9,8 +9,8 @@
 
 namespace crypto {
 
-    KeyPairPtr KeysGenerator::GenerateFHEKeyPair() {
-
+    IKeyPairPtr KeysGenerator::GenerateFHEKeyPair() {
+        return nullptr;
     }
 
 }

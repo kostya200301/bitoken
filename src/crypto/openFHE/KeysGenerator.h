@@ -5,14 +5,14 @@
 #ifndef BITOCEN_KEYSGENERATOR_H
 #define BITOCEN_KEYSGENERATOR_H
 
-#include "crypto/KeyPair.h"
+#include "crypto/IKeyPair.h"
 #include "crypto/IKeysGenerator.h"
 
 namespace crypto{
 
     class KeysGenerator : IKeysGenerator {
 
-        KeyPairPtr GenerateFHEKeyPair() override;
+        IKeyPairPtr GenerateFHEKeyPair() override;
     };
 
 }
