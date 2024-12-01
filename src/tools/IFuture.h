@@ -13,6 +13,13 @@
 #include <exception>
 
 // Абстрактный интерфейс для асинхронных операций с результатом типа T
+
+template <typename T>
+class IFeature;
+
+template <typename T>
+using IFeaturePtr = std::shared_ptr<IFeature<T>>;
+
 template <typename T>
 class IFeature {
 public:

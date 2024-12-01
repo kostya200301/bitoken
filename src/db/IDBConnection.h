@@ -19,11 +19,13 @@ namespace db {
     public:
         virtual ~IDBConnection() = default;
 
-        virtual IFeature<IDBQueryResultPtr> execute_query_async(
+        virtual IFeaturePtr<IDBQueryResultPtr> execute_query_async(
                 const IDBQueryPtr& query,
                 std::function<void(const IDBQueryResultPtr&)> callback) = 0;
 
         virtual bool connect(const DBConnectionParamsPtr& params) = 0;
+
+        virtual IDBQueryResultPtr execute_query(const IDBQueryPtr& query) = 0;
 
     };
 

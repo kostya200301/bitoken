@@ -6,6 +6,16 @@ project(bitocen)
 include_directories(${CMAKE_INCLUDE_PATH})
 link_directories(${CMAKE_LIBRARY_PATH})
 
+add_library(Cassandra INTERFACE)
+find_library(CASSANDRA_LIBRARY NAMES cassandra PATHS ${CASSANDRA_LIB_DIR})
+
+if(CASSANDRA_LIBRARY)
+    message("Cassandra library found")
+    target_link_libraries(Cassandra INTERFACE ${CASSANDRA_LIBRARY})
+else()
+    message(FATAL_ERROR "Cassandra library not found")
+endif()
+
 
 message(STATUS "C++ Compiler Version: ${CMAKE_CXX_COMPILER_VERSION}")
 
@@ -83,4 +93,5 @@ add_subdirectory(src/json)
 add_subdirectory(src/model)
 add_subdirectory(src/tcp)
 add_subdirectory(src/crypto)
+add_subdirectory(src/db)
 add_subdirectory(src/tests)

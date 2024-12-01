@@ -6,6 +6,7 @@
 #define BITOCEN_IDBQUERYRESULT_H
 
 #include <memory>
+#include "IDBQueryIterator.h"
 
 namespace db {
 
@@ -14,6 +15,9 @@ namespace db {
 
     class IDBQueryResult {
     public:
+        virtual ~IDBQueryResult() = default;
+
+        virtual IDBQueryIteratorPtr get_iterator() = 0;
 
     };
 

@@ -6,6 +6,7 @@
 #define BITOCEN_DBCONNECTION_H
 
 #include <memory>
+#include <cassandra.h>
 #include "db/IDBConnection.h"
 
 namespace db {
@@ -20,11 +21,17 @@ namespace db {
 
         ~DBConnection() override;
 
-//        virtual IFeature<IDBQueryResultPtr> execute_query_async(
-//                const IDBQueryPtr& query,
-//                std::function<void(const IDBQueryResultPtr&)> callback) = 0;
-//
+        IFeaturePtr<IDBQueryResultPtr> execute_query_async(
+                const IDBQueryPtr& query,
+                std::function<void(const IDBQueryResultPtr&)> callback) override;
+
         bool connect(const DBConnectionParamsPtr& params) override;
+
+        IDBQueryResultPtr execute_query(const IDBQueryPtr& query) override;
+
+    private:
+        CassCluster *cluster_;
+        CassSession *session_;
     };
 
 }
