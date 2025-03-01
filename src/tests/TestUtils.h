@@ -8,6 +8,10 @@ void sleep_ms(int milliseconds) {
     std::this_thread::sleep_for(std::chrono::milliseconds(milliseconds));
 }
 
+void sleep_ns(int nanoseconds) {
+    std::this_thread::sleep_for(std::chrono::nanoseconds(nanoseconds));
+}
+
 #define REQUIRE_WAIT(action, event)                                                                                    \
     {                                                                                                                  \
         auto f = event;                                                                                                \
@@ -59,6 +63,7 @@ static constexpr int DEFAULT_TIMEOUT{20};
     APP_TRACE << "WAIT_FUTURE_DATA(" #type ", " #var ", " #future ")";                                                 \
     type var = future->wait_result_data();
 
+#define SLEEP_NS(NS) sleep_ns(NS);
 #define SLEEP_MS(MS) sleep_ms(MS);
 #define SLEEP_S(S) sleep_ms(S * 1000);
 

@@ -79,7 +79,13 @@ JxgfJ9WyP7Z179hainfHIoTn5kztJ580ev86ka3AbIkDXU4f+c+ZoC6zWWTMh8z2
 oIZsFHJaYF6kgcKt1yX4eZgTAH6zJmOyHwIBAgICAOE=
 -----END DH PARAMETERS-----)";
         }
+
+        static std::string generate_random_string(size_t length);
+
+        static std::vector<uint8_t> generate_uuid_uint8_vec();
+
     };
+
 
 }
 

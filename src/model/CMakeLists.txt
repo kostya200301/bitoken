@@ -9,6 +9,7 @@ set(SOURCES
         MessagesManager.cpp
         PoolManager.cpp
         Core.cpp
+        User.cpp
 )
 
 # Добавляем исполняемый файл

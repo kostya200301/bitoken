@@ -11,7 +11,7 @@
 
 namespace tcp {
 
-    TcpMessagesManager::TcpMessagesManager(const model::MessagesQueuePtr& messages_queue, size_t server_port, size_t threads_count) : messages_queue_(messages_queue) {
+    TcpMessagesManager::TcpMessagesManager(model::MessagesQueuePtr  messages_queue, size_t server_port, size_t threads_count) : messages_queue_(std::move(messages_queue)) {
         spdlog::info("[TCP] TcpMessagesManager: create");
 
         buffers_pool_ = std::make_shared<BuffersPool>(threads_count);

@@ -6,6 +6,7 @@
 #define BITOCEN_DBQUERYRESULT_H
 
 #include "db/IDBQueryResult.h"
+#include "db/IDBQuery.h"
 #include "cassandra.h"
 
 namespace db {
@@ -21,8 +22,17 @@ namespace db {
 
         IDBQueryIteratorPtr get_iterator() override;
 
+        IDBQueryPtr get_query() override {
+            return query_;
+        }
+
+        void set_query(const IDBQueryPtr& query) override {
+            query_ = query;
+        }
+
     private:
         const CassResult* result_;
+        IDBQueryPtr query_ = nullptr;
     };
 
 }

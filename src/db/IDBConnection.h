@@ -21,7 +21,7 @@ namespace db {
 
         virtual IFeaturePtr<IDBQueryResultPtr> execute_query_async(
                 const IDBQueryPtr& query,
-                std::function<void(const IDBQueryResultPtr&)> callback) = 0;
+                void(*callback)(const IFeaturePtr<IDBQueryResultPtr>&, void*)) = 0;
 
         virtual bool connect(const DBConnectionParamsPtr& params) = 0;
 

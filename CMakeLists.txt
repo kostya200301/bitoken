@@ -55,6 +55,11 @@ include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/core/include)
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/utility/include)
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/date_time/include)
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/process/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/config/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/assert/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/throw_exception/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/system/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/uuid/include)
 include_directories(${BOOST_INCLUDE_DIRS})
 
 #boost signals
@@ -90,6 +95,7 @@ include_directories(${CMAKE_BINARY_DIR}/libs/openfhe-development/src/core)
 # ?????
 
 add_subdirectory(src/json)
+add_subdirectory(src/tools)
 add_subdirectory(src/model)
 add_subdirectory(src/tcp)
 add_subdirectory(src/crypto)

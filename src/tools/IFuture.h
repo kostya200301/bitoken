@@ -11,6 +11,7 @@
 #include <memory>
 #include <functional>
 #include <exception>
+#include "IError.h"
 
 // Абстрактный интерфейс для асинхронных операций с результатом типа T
 
@@ -35,16 +36,16 @@ public:
     virtual void cancel() = 0;
 
     // Метод для получения результата. Результат передается через ссылку.
-    virtual bool get_result(T& result) = 0;
+    virtual T& get_result() = 0;
 
     // Метод для установки колбэка, который будет вызван при завершении операции
-    virtual void set_callback(std::function<void(T)> callback) = 0;
+    virtual void set_callback(void(*callback)(const IFeaturePtr<T>&, void*)) = 0;
 
     // Метод для проверки, произошла ли ошибка во время выполнения операции
     virtual bool has_error() const = 0;
 
     // Метод для получения информации об ошибке
-    virtual std::exception_ptr error() const = 0;
+    virtual IErrorPtr error() const = 0;
 
     // Метод для проверки, была ли отменена операция
     virtual bool is_canceled() const = 0;

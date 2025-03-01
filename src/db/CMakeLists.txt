@@ -9,11 +9,15 @@ set(SOURCES
         ScyllaDB/DBRow.cpp
         ScyllaDB/DBValue.cpp
         ScyllaDB/Feature.cpp
+        ScyllaDB/DBInitializer.cpp
         DBQuery.cpp
+        UsersManagerRepo.cpp
+        MessagesManagerRepo.cpp
+        ReKeysManagerRepo.cpp
 )
 
 add_library(db STATIC ${SOURCES})
 
 
-target_link_libraries (db PUBLIC Cassandra)
+target_link_libraries (db PUBLIC Cassandra tools crypto)
 

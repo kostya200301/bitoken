@@ -7,6 +7,7 @@
 
 #include <memory>
 #include "IDBQueryIterator.h"
+#include "IDBQuery.h"
 
 namespace db {
 
@@ -19,6 +20,9 @@ namespace db {
 
         virtual IDBQueryIteratorPtr get_iterator() = 0;
 
+        virtual IDBQueryPtr get_query() = 0;
+
+        virtual void set_query(const IDBQueryPtr& query) = 0;
     };
 
 }

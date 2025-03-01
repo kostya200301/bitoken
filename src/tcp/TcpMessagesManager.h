@@ -21,7 +21,7 @@ namespace tcp {
 
     class TcpMessagesManager : public std::enable_shared_from_this<TcpMessagesManager> {
     public:
-        explicit TcpMessagesManager(const model::MessagesQueuePtr& messages_queue, size_t server_port, size_t threads_count);
+        explicit TcpMessagesManager(model::MessagesQueuePtr  messages_queue, size_t server_port, size_t threads_count);
 
         ~TcpMessagesManager();
 

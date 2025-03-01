@@ -12,7 +12,7 @@ namespace db {
     DBQueryResult::DBQueryResult(const CassResult* result) :result_(result) {}
 
     DBQueryResult::~DBQueryResult() {
-        spdlog::info("[db] DBQueryResult: Destroy");
+        spdlog::trace("[db] DBQueryResult: Destroy");
         cass_result_free(result_);
     }
 

@@ -7,6 +7,7 @@ project(bitocen)
 # Указываем файлы исходного кода для сборки
 set(SOURCES_MODEL_TEST_FILES
         TestMessagesQueue.cpp
+        TestUsers.cpp
 )
 
 set(SOURCES_MODEL_TEST_FILES ${SOURCES_MODEL_TEST_FILES} PARENT_SCOPE)

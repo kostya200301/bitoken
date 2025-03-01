@@ -7,6 +7,7 @@
 
 #include "IDBQuery.h"
 #include <string>
+#include <vector>
 #include <unordered_map>
 
 namespace db {
@@ -23,6 +24,8 @@ namespace db {
         bool from_string(const std::string& query) override;
 
         size_t get_num_parameters() override;
+
+        std::vector<size_t> get_params_indexes() override;
 
         DBQueryParam get_param(size_t index) override;
 
