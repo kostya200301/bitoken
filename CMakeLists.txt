@@ -40,7 +40,8 @@ add_subdirectory(${CMAKE_SOURCE_DIR}/libs/openfhe-development)
 find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_INCLUDE_DIR})
 
-
+# LizaDB
+include_directories(${CMAKE_SOURCE_DIR}/libs/lizaDB/src)
 
 # Boost asio
 include_directories(${CMAKE_SOURCE_DIR}/libs/boost/libs/align/include)
