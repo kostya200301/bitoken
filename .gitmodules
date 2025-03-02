@@ -22,3 +22,6 @@
 [submodule "libs/openfhe-development"]
 	path = libs/openfhe-development
 	url = https://github.com/openfheorg/openfhe-development.git
+[submodule "libs/lizaDB"]
+	path = libs/lizaDB
+	url = git@github.com:kostya200301/LizaDB.git
