@@ -11,6 +11,7 @@
 #include "PoolManager.h"
 #include <spdlog/spdlog.h>
 #include "concurrentqueue.h"
+#include "tcp/tcp_message_parts/TcpMessageParts.h"
 
 
 namespace model {
@@ -26,6 +27,7 @@ namespace model {
 
         void enqueue(const IMessagePtr& message);
         void enqueue(const std::string& con_id, const std::string& message);
+        void enqueue(const std::string& con_id, const tcp::TcpMessagePartsPtr& tcp_parts);
         int get_size_approx() const;
         IMessagePtr dequeue();
 

@@ -9,6 +9,7 @@ set(SOURCES
         Buffer.cpp
         BufferWorm.cpp
         BuffersManager.cpp
+        tcp_message_parts/TcpMessageSPart.cpp
 )
 
 # Добавляем исполняемый файл

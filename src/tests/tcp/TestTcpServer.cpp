@@ -14,9 +14,9 @@ using namespace std::chrono_literals;
 
 
 std::string get_test_json_(int i) {
-    std::string big_data = R"(I{I{I{SWSWQSQSIIII{QWSI{I{
+    std::string big_data = R"(I{I{I{SWSWQSQSIIII{QWSI{S{000025001486}SI{"type": "TestMessage"}ID{
   "type": "TestMessage",
-  "lala": 000000,
+  "lala": 123456,
   "items": [
     {
       "id": 1,
@@ -92,13 +92,29 @@ std::string get_test_json_(int i) {
       "details": "User updated profile"
     }
   ]
-}IdqdqdqdI}I}I}I{I{I{I{)";
-    big_data[67] = std::to_string(i % 10)[0];
-    big_data[66] = std::to_string(i / 10 % 10)[0];
-    big_data[65] = std::to_string(i / 100 % 10)[0];
-    big_data[64] = std::to_string(i / 1000 % 10)[0];
-    big_data[63] = std::to_string(i / 10000 % 10)[0];
-    big_data[62] = '1';
+}DdqdqdqdI}I}I}I{I{I{I{)";
+//    big_data[67] = std::to_string(i % 10)[0];
+//    big_data[66] = std::to_string(i / 10 % 10)[0];
+//    big_data[65] = std::to_string(i / 100 % 10)[0];
+//    big_data[64] = std::to_string(i / 1000 % 10)[0];
+//    big_data[63] = std::to_string(i / 10000 % 10)[0];
+//    big_data[62] = '1';
+    return big_data;
+}
+
+std::string get_test_json_2(int k) {
+//    std::string big_data = R"(DDASDAS{{asdD}}ASD{}as[{dASD{}S{000030000059}SI{"data": 113, "papa": "321"}ID{"type": "TestMessage", "data2": "1132", "papa2": "3212"}DAS{{asdD}}ASD{}as[{dASD{})";
+    std::string big_data_part1 = R"(S{000030000062}SI{"data": 113, "papa": "321"}ID{"type": "TestMessage", "data2": ")";
+    std::string big_data_part2 = R"(", "papa2": "3212"}D)";
+    std::string big_data = big_data_part1 + std::to_string(1000000 + k) + big_data_part2;
+    return big_data;
+}
+
+std::string get_test_json_2_corrupted(int k) {
+//    std::string big_data = R"(DDASDAS{{asdD}}ASD{}as[{dASD{}S{000030000059}SI{"data": 113, "papa": "321"}ID{"type": "TestMessage", "data2": "1132", "papa2": "3212"}DAS{{asdD}}ASD{}as[{dASD{})";
+    std::string big_data_part1 = R"(S{000030999999}SI{"data": 113, "papa": "321"}ID{"type": "TestMessage", "data2": ")";
+    std::string big_data_part2 = R"(", "papa2": "3212"}D)";
+    std::string big_data = big_data_part1 + std::to_string(1000000 + k) + big_data_part2;
     return big_data;
 }
 
@@ -122,6 +138,8 @@ TEST_CASE("Test tcp server + clients", "[model][unit][coverage]") {
         }
 
         auto data = get_test_json_(1233) + get_test_json_(1234) + get_test_json_(1235) + get_test_json_(1236) + get_test_json_(1237);
+//        auto data = "ASDA{}ASD{A}SDDS{asd}SW123{{" + get_test_json_2(123) + "ASDA{}ASD{A}SDDS{asd}SW123{{";
+        auto data_big = data + data + get_test_json_2_corrupted(124) + data + data + data;
         std::this_thread::sleep_for(1s);
         std::vector<std::thread> threads2;
         for (int h = 0; h < senders.size(); h++) {

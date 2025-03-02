@@ -12,12 +12,20 @@
 #include <deque>
 #include <spdlog/spdlog.h>
 #include "Buffer.h"
+#include "tcp_message_parts/TcpMessageParts.h"
 
 namespace tcp {
+
+    enum class ParseResult {
+        OK,
+        NotEnoughData,
+        DataIsCorrupted
+    };
 
     enum class ReadJSONStatus {
         FoundOne,
         FoundAll,
+        FoundCorrupted,
         FoundPart,
         NothingFound
     };
@@ -35,8 +43,12 @@ namespace tcp {
 
         void read_all_jsons();
 
+        std::string get_client_id() {
+            return client_id_;
+        }
+
     public:
-        INLINE_SIGNAL(new_message, void(const std::string& con_id, const std::string& mes));
+        INLINE_SIGNAL(new_message, void(const std::string& con_id, const TcpMessagePartsPtr& tcp_parts));
 
     private:
         std::string client_id_;
@@ -49,6 +61,19 @@ namespace tcp {
         ReadJSONStatus try_read_crazy_json();
 
         ReadJSONStatus read_all();
+
+        ParseResult try_parse_s_part();
+
+        ParseResult try_parse_i_part(const TcpMessageSPartPtr& s_part);
+
+        ParseResult try_parse_d_part(const TcpMessageSPartPtr& s_part);
+
+        void delete_until_new_block();
+
+        void delete_n_chars(size_t n);
+
+    private:
+        TcpMessagePartsPtr parts_;
     };
 }
 

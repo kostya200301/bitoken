@@ -35,8 +35,8 @@ namespace tcp {
     void BuffersManager::add_new_client(const std::string& client_id) {
 //        std::lock_guard<std::mutex> lock(mtx_); // Думаю тут тоже асинхранность и не надо
         buffers_[client_id] = std::make_shared<BufferWorm>(client_id);
-        buffers_slots_[client_id] = buffers_[client_id]->on_new_message_slot([this](const std::string& con_id, const std::string& mes) {
-            messages_queue_->enqueue(con_id, mes);
+        buffers_slots_[client_id] = buffers_[client_id]->on_new_message_slot([this](const std::string& con_id, const TcpMessagePartsPtr& tcp_parts) {
+            messages_queue_->enqueue(con_id, tcp_parts);
         });
     }
 

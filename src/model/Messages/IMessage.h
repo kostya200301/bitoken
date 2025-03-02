@@ -7,6 +7,7 @@
 
 #include <memory>
 #include "json/JSONHelper.h"
+#include "tcp/tcp_message_parts/TcpMessageParts.h"
 
 
 namespace model {
@@ -15,6 +16,8 @@ namespace model {
     using IMessagePtr = std::shared_ptr<IMessage>;
 
     IMessagePtr make_message(const std::string& con_id, const std::string& data);
+
+    IMessagePtr make_message(const std::string& con_id, const tcp::TcpMessagePartsPtr& tcp_parts);
 
     class IMessage {
     public:

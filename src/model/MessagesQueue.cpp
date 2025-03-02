@@ -18,6 +18,13 @@ namespace model {
         }
     }
 
+    void MessagesQueue::enqueue(const std::string& con_id, const tcp::TcpMessagePartsPtr& tcp_parts) {
+        auto mes = make_message(con_id, tcp_parts);
+        if (mes != nullptr) {
+            enqueue(mes);
+        }
+    }
+
     IMessagePtr MessagesQueue::dequeue() {
         IMessagePtr mes;
         return queue.try_dequeue(mes) ? mes : nullptr;
